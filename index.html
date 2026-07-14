@@ -721,11 +721,93 @@
 
     /* 下载按钮 */
     .download-section {
-      text-align: center;
-      padding: 3rem;
+      padding: clamp(1.5rem, 4vw, 3rem);
       background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
       border-radius: 15px;
       margin: 3rem 0;
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(210px, 240px);
+      gap: clamp(2rem, 5vw, 4rem);
+      align-items: center;
+    }
+
+    .contact-copy h3 {
+      margin-bottom: 1rem;
+      color: #2c3e50;
+      font-size: 1.5rem;
+    }
+
+    .contact-copy > p {
+      margin-bottom: 1.35rem;
+      color: #666;
+    }
+
+    .contact-email-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      width: fit-content;
+      max-width: 100%;
+      margin-bottom: 1.5rem;
+      padding: 0.75rem 1rem;
+      border: 1px solid #dde4e9;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.75);
+    }
+
+    .contact-email-row strong {
+      color: #2c3e50;
+      white-space: nowrap;
+    }
+
+    .contact-email-row a {
+      color: #4a5568;
+      text-decoration: none;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-email-row a:hover {
+      color: #2980b9;
+    }
+
+    .personal-wechat {
+      width: 100%;
+      max-width: 240px;
+      justify-self: end;
+      margin: 0;
+      padding: 1rem;
+      border: 1px solid #dde4e9;
+      border-radius: 14px;
+      background: white;
+      text-align: center;
+      box-shadow: 0 6px 18px rgba(45, 55, 72, 0.09);
+    }
+
+    .personal-wechat h3 {
+      margin-bottom: 0.8rem;
+      color: #2c3e50;
+      font-size: 1.1rem;
+    }
+
+    .personal-wechat a {
+      display: block;
+      border-radius: 9px;
+      overflow: hidden;
+    }
+
+    .personal-wechat img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .personal-wechat figcaption {
+      margin-top: 0.7rem;
+      color: #666;
+      font-size: 0.86rem;
     }
 
     .download-btn {
@@ -749,7 +831,7 @@
     .download-actions {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
+      justify-content: flex-start;
       gap: 0.5rem;
     }
 
@@ -956,6 +1038,29 @@
 
       .download-section {
         padding: 2rem 1rem;
+      }
+
+      .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
+      }
+
+      .contact-copy {
+        text-align: center;
+      }
+
+      .contact-email-row {
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .download-actions {
+        justify-content: center;
+      }
+
+      .personal-wechat {
+        max-width: 220px;
+        justify-self: center;
       }
 
       .wechat-summary {
@@ -1389,11 +1494,26 @@
     <section id="contact">
       <h2>联系方式</h2>
       <div class="download-section">
-        <h3 style="margin-bottom: 2rem; color: #2c3e50;">获取简历</h3>
-        <p style="margin-bottom: 2rem; color: #666;">如需了解更多详细信息，请下载完整简历</p>
-        <div class="download-actions">
-          <a href="static/陈怡达-重庆师范大学-个人简历.pdf" class="download-btn" target="_blank" rel="noopener">📄 下载 PDF 简历</a>
-          <a href="mailto:yida_myth@163.com" class="download-btn">📧 发送邮件</a>
+        <div class="contact-layout">
+          <div class="contact-copy">
+            <h3>获取简历</h3>
+            <p>如需了解更多详细信息，请下载完整简历或通过邮件、微信与我联系。</p>
+            <div class="contact-email-row">
+              <strong>邮箱</strong>
+              <a href="mailto:yida_myth@163.com">yida_myth@163.com</a>
+            </div>
+            <div class="download-actions">
+              <a href="static/陈怡达-重庆师范大学-个人简历.pdf" class="download-btn" target="_blank" rel="noopener">📄 下载 PDF 简历</a>
+              <a href="mailto:yida_myth@163.com" class="download-btn">📧 发送邮件</a>
+            </div>
+          </div>
+          <figure class="personal-wechat">
+            <h3>个人微信</h3>
+            <a href="static/个人微信.JPG" target="_blank" rel="noopener" aria-label="查看陈怡达个人微信二维码大图">
+              <img src="static/个人微信.JPG" alt="陈怡达个人微信二维码" width="888" height="1191" loading="lazy" decoding="async">
+            </a>
+            <figcaption>扫描二维码添加微信</figcaption>
+          </figure>
         </div>
       </div>
     </section>
