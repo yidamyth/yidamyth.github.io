@@ -807,21 +807,24 @@
       background: linear-gradient(135deg, #234e52, #2c7a7b);
     }
 
-    .research-placeholder {
-      pointer-events: none;
+    .project-wide {
+      grid-column: 1 / -1;
     }
 
-    .research-placeholder:hover {
-      transform: none;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    .project-summary {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
-    .research-placeholder .research-header {
-      min-height: 110px;
+    .project-grid > .research-item:nth-child(2) .research-header {
+      background: linear-gradient(135deg, #344f63, #46758b);
     }
 
-    .research-placeholder .research-content {
-      min-height: 88px;
+    .project-grid > .research-item:nth-child(3) .research-header {
+      background: linear-gradient(135deg, #46536b, #5c6f8d);
+    }
+
+    .project-grid > .research-item:nth-child(4) .research-header {
+      background: linear-gradient(135deg, #6c5438, #846a47);
     }
 
     .publication-badge {
@@ -1322,10 +1325,6 @@
         white-space: normal;
       }
 
-      .research-placeholder {
-        display: none;
-      }
-
       .software-grid .research-title {
         min-height: 0;
       }
@@ -1670,7 +1669,7 @@
       </div>
 
       <h3>🔬 研究项目</h3>
-      <div class="research-grid">
+      <div class="research-grid project-grid">
         <div class="research-item featured-project">
           <div class="research-header">
             <div class="research-title">2023年研究生拔尖创新人才项目</div>
@@ -1686,13 +1685,17 @@
             </dl>
           </div>
         </div>
-        <div class="research-item">
+        <div class="research-item project-wide">
           <div class="research-header">
             <div class="research-title">基于机器视觉的土种识别技术在智慧农业中的应用</div>
             <div class="research-meta">校级项目 · 2022.06-2023.06 · 已结题</div>
           </div>
           <div class="research-content">
-            <p>项目编号：YKC22016<br>资助金额：4千元<br>项目排名：1/5</p>
+            <dl class="compact-details project-summary">
+              <div class="compact-detail"><dt>项目编号</dt><dd>YKC22016</dd></div>
+              <div class="compact-detail"><dt>资助金额</dt><dd>4千元</dd></div>
+              <div class="compact-detail"><dt>项目排名</dt><dd>1/5（主持）</dd></div>
+            </dl>
           </div>
         </div>
         <div class="research-item">
@@ -1712,10 +1715,6 @@
           <div class="research-content">
             <p>项目编号：CYS22564<br>资助金额：5千元<br>项目排名：5/5</p>
           </div>
-        </div>
-        <div class="research-item research-placeholder" aria-hidden="true">
-          <div class="research-header"></div>
-          <div class="research-content"></div>
         </div>
       </div>
     </section>
