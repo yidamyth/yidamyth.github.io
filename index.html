@@ -486,6 +486,36 @@
       background: linear-gradient(135deg, #22543d, #2f855a);
     }
 
+    .compact-details {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem 1.5rem;
+      margin: 0;
+    }
+
+    .compact-detail {
+      display: grid;
+      grid-template-columns: max-content 1fr;
+      gap: 0.35rem;
+      align-items: baseline;
+      padding-bottom: 0.55rem;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .compact-detail dt {
+      color: #2d3748;
+      font-weight: 600;
+    }
+
+    .compact-detail dt::after {
+      content: '：';
+    }
+
+    .compact-detail dd {
+      margin: 0;
+      color: #4a5568;
+    }
+
     .featured-project {
       grid-column: 1 / -1;
       border-color: #81e6d9;
@@ -665,6 +695,10 @@
 
       .detail-item-wide .detail-label {
         min-width: auto;
+      }
+
+      .compact-details {
+        grid-template-columns: 1fr;
       }
 
       .skills-container,
@@ -1043,10 +1077,18 @@
         <div class="research-item authorized-patent">
           <div class="research-header">
             <div class="research-title">基于多视角嵌入与渐进式多尺度对齐的未配准图像融合方法</div>
-            <div class="research-meta">发明专利 · 已授权 · 授权公告日：2026年7月10日</div>
+            <div class="research-meta">发明专利 · 已授权</div>
           </div>
           <div class="research-content">
-            <p>专利权人：昆明理工大学<br>第一发明人：李华锋（导师）<br>第二发明人：陈怡达（学生）<br>其他发明人：张亚飞、谢明鸿<br>专利号：ZL 2025 1 0593394.4<br>授权公告号：CN 120471785 B<br>专利申请日：2025年5月9日</p>
+            <dl class="compact-details">
+              <div class="compact-detail"><dt>专利权人</dt><dd>昆明理工大学</dd></div>
+              <div class="compact-detail"><dt>第一发明人</dt><dd>李华锋（导师）</dd></div>
+              <div class="compact-detail"><dt>第二发明人</dt><dd>陈怡达（学生）</dd></div>
+              <div class="compact-detail"><dt>其他发明人</dt><dd>张亚飞、谢明鸿</dd></div>
+              <div class="compact-detail"><dt>专利号</dt><dd>ZL 2025 1 0593394.4</dd></div>
+              <div class="compact-detail"><dt>授权公告号</dt><dd>CN 120471785 B</dd></div>
+              <div class="compact-detail"><dt>专利申请日</dt><dd>2025年5月9日</dd></div>
+            </dl>
           </div>
         </div>
         <div class="research-item">
@@ -1073,11 +1115,17 @@
       <div class="research-grid">
         <div class="research-item featured-project">
           <div class="research-header">
-            <div class="research-title">昆明理工大学2023年研究生拔尖创新人才项目</div>
-            <div class="research-meta">博士项目 · 在研 · 项目排名：1/1</div>
+            <div class="research-title">2023年研究生拔尖创新人才项目</div>
+            <div class="research-meta">博士项目 · 在研</div>
           </div>
           <div class="research-content">
-            <p>学校：昆明理工大学<br>学院：信息工程与自动化学院<br>项目编号：CA24163M109A<br>资助金额：8万元</p>
+            <dl class="compact-details">
+              <div class="compact-detail"><dt>学校</dt><dd>昆明理工大学</dd></div>
+              <div class="compact-detail"><dt>学院</dt><dd>信息工程与自动化学院</dd></div>
+              <div class="compact-detail"><dt>项目编号</dt><dd>CA24163M109A</dd></div>
+              <div class="compact-detail"><dt>资助金额</dt><dd>8万元</dd></div>
+              <div class="compact-detail"><dt>项目排名</dt><dd>1/1</dd></div>
+            </dl>
           </div>
         </div>
         <div class="research-item">
