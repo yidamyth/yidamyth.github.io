@@ -349,17 +349,19 @@
     }
 
     .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.65rem;
     }
 
     .skill-tag {
       background: linear-gradient(135deg, #3498db, #2980b9);
       color: white;
-      padding: 0.5rem 1rem;
+      padding: 0.5rem 0.35rem;
       border-radius: 25px;
-      font-size: 0.9rem;
+      font-size: 0.84rem;
+      text-align: center;
+      white-space: nowrap;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       transition: all 0.3s ease;
     }
@@ -647,15 +649,6 @@
       grid-template-columns: minmax(0, 1fr) auto;
       gap: 1.5rem;
       align-items: center;
-    }
-
-    .wechat-label {
-      display: inline-block;
-      margin-bottom: 0.45rem;
-      color: #2f855a;
-      font-size: 0.85rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
     }
 
     .wechat-name {
@@ -1000,34 +993,29 @@
             <span class="skill-tag">MATLAB</span>
             <span class="skill-tag">Git</span>
             <span class="skill-tag">Linux</span>
+            <span class="skill-tag">Anaconda</span>
           </div>
         </div>
         <div class="skill-category">
-          <h3>深度学习框架</h3>
+          <h3>深度学习</h3>
           <div class="skill-tags">
             <span class="skill-tag">PyTorch</span>
             <span class="skill-tag">TensorFlow</span>
             <span class="skill-tag">Keras</span>
+            <span class="skill-tag">CNN</span>
+            <span class="skill-tag">Transformer</span>
+            <span class="skill-tag">Attention</span>
           </div>
         </div>
         <div class="skill-category">
           <h3>计算机视觉</h3>
           <div class="skill-tags">
             <span class="skill-tag">OpenCV</span>
-            <span class="skill-tag">图像处理</span>
+            <span class="skill-tag">多模态融合</span>
             <span class="skill-tag">图像配准</span>
             <span class="skill-tag">图像融合</span>
-            <span class="skill-tag">目标检测</span>
-          </div>
-        </div>
-        <div class="skill-category">
-          <h3>模型与方法</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">ResNet</span>
-            <span class="skill-tag">Mask R-CNN</span>
-            <span class="skill-tag">U-Net</span>
-            <span class="skill-tag">ViT</span>
-            <span class="skill-tag">Self-Attention</span>
+            <span class="skill-tag">图像恢复</span>
+            <span class="skill-tag">智能感知</span>
           </div>
         </div>
       </div>
@@ -1262,7 +1250,6 @@
       <div class="wechat-card">
         <div class="wechat-summary">
           <div>
-            <span class="wechat-label">公众号名称</span>
             <h3 class="wechat-name">多模态信息融合</h3>
             <p class="wechat-description">多模态图像融合 | 智能感知 | 论文解读、科研思考</p>
           </div>
