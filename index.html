@@ -757,6 +757,22 @@
       font-size: 1.25rem;
     }
 
+    .publication-core {
+      border-color: #a8c7d3;
+    }
+
+    .publication-core .research-header {
+      background: linear-gradient(135deg, #2c5870, #3f7186);
+    }
+
+    .publication-conference {
+      border-color: #c2d0d8;
+    }
+
+    .publication-conference .research-header {
+      background: linear-gradient(135deg, #455f70, #5d7787);
+    }
+
     .authorized-patent {
       grid-column: 1 / -1;
       border-color: #9ae6b4;
@@ -1587,22 +1603,24 @@
             </div>
           </div>
         </article>
-        <article class="research-item">
-          <div class="research-header">
-            <div class="research-title">Soil Image Segmentation Based on Mask R-CNN</div>
-            <div class="research-meta">2023年1月 · 第一作者 · 已见刊检索</div>
-          </div>
-          <div class="research-content">
-            <p>发表于：2023 第三届 IEEE 消费电子与计算机工程国际学术会议（IEEE-ICCECE 2022 中国·广州）</p>
-          </div>
-        </article>
-        <article class="research-item">
+        <article class="research-item publication-core">
           <div class="research-header">
             <div class="research-title">基于子图选择的土种识别</div>
-            <div class="research-meta">2023年2月 · 第一作者 · 已录用见刊</div>
+            <div class="research-meta">期刊论文 · 第一作者 · 北大核心</div>
           </div>
           <div class="research-content">
-            <p>期刊：重庆师范大学学报-自然科学版（北大核心）</p>
+            <p class="publication-authors"><strong>陈怡达</strong>，曾绍华，吴雪，等</p>
+            <p class="publication-venue"><cite>重庆师范大学学报（自然科学版）</cite>，2024，41(3)：59–72。</p>
+          </div>
+        </article>
+        <article class="research-item publication-conference">
+          <div class="research-header">
+            <div class="research-title">Soil Image Segmentation Based on Mask R-CNN</div>
+            <div class="research-meta">会议论文 · 第一作者 · ICCECE 2023</div>
+          </div>
+          <div class="research-content">
+            <p class="publication-authors"><strong>Yida Chen</strong>, Kang Liu, Yi Xin, Xinru Zhao</p>
+            <p class="publication-venue"><cite>2023 3rd International Conference on Consumer Electronics and Computer Engineering (ICCECE)</cite>, 2023, pp. 507–510.</p>
           </div>
         </article>
       </div>
