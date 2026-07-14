@@ -1,1006 +1,1186 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <title>YIDA CHEN</title>
-    <style type="text/css">
-        h1{
-            text-align: center;
-            font-size: 50px;
-        }
-    </style>
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="陈怡达（Yida Chen）的个人学术主页，研究方向包括多模态信息融合、图像配准与图像恢复。">
+  <meta name="author" content="Yida Chen">
+  <meta name="theme-color" content="#243b53">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:title" content="陈怡达（Yida Chen）- 个人学术主页">
+  <meta property="og:description" content="研究方向：多模态信息融合、图像配准与图像恢复。">
+  <meta property="og:url" content="https://yidamyth.github.io/">
+  <link rel="canonical" href="https://yidamyth.github.io/">
+  <title>陈怡达（Yida Chen）- 个人学术主页</title>
+  <link rel="icon" href="static/favicon-1.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Noto Sans SC', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #eef2f7;
+      color: #2d3748;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a:focus-visible {
+      outline: 3px solid #f6ad55;
+      outline-offset: 3px;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: 0.75rem;
+      left: 0.75rem;
+      z-index: 2000;
+      padding: 0.65rem 1rem;
+      border-radius: 8px;
+      background: white;
+      color: #1f4e79;
+      text-decoration: none;
+      transform: translateY(-160%);
+      transition: transform 0.2s ease;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    /* 导航栏 */
+    nav {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      background: rgba(36, 59, 83, 0.96);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      padding: 0.65rem 0;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      gap: 0.35rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    nav ul::-webkit-scrollbar {
+      display: none;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      display: block;
+      padding: 0.5rem 0.75rem;
+      border-radius: 8px;
+      white-space: nowrap;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover, nav a.active {
+      background: #3182ce;
+    }
+
+    /* 头部区域 */
+    header {
+      background: linear-gradient(135deg, #1f2937 0%, #243b53 48%, #334e68 100%);
+      color: white;
+      padding: 76px 20px 92px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        radial-gradient(circle at 18% 30%, rgba(66, 153, 225, 0.22), transparent 28%),
+        radial-gradient(circle at 82% 18%, rgba(99, 179, 237, 0.16), transparent 24%),
+        radial-gradient(circle at 70% 86%, rgba(72, 187, 120, 0.12), transparent 22%);
+    }
+
+    .profile-container {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .profile-image {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 6px solid #ecf0f1;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      background: #ddd;
+      object-fit: cover;
+      overflow: hidden;
+    }
+
+    .profile-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .profile-info h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .profile-info h1 span {
+      display: block;
+      margin-top: 0.25rem;
+      font-size: 1.15rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: #bee3f8;
+    }
+
+    .profile-info p {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      opacity: 0.9;
+    }
+
+    .contact-info {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    .contact-info a,
+    .contact-info span {
+      background: rgba(255,255,255,0.2);
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      backdrop-filter: blur(10px);
+      color: white;
+      text-decoration: none;
+    }
+
+    .contact-info a:hover {
+      background: rgba(255,255,255,0.3);
+    }
+
+    /* 主要内容区域 */
+    main {
+      max-width: 1200px;
+      margin: -28px auto 0;
+      padding: 56px clamp(20px, 4vw, 48px);
+      background: white;
+      box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
+      border-radius: 22px;
+      position: relative;
+      z-index: 10;
+    }
+
+    section {
+      margin-bottom: 4rem;
+      scroll-margin-top: 78px;
+    }
+
+    section:last-child {
+      margin-bottom: 0;
+    }
+
+    h2 {
+      color: #2c3e50;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 3px solid #3498db;
+      position: relative;
+    }
+
+    h2::before {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: #e74c3c;
+    }
+
+    section > h3 {
+      margin: 2.5rem 0 1rem;
+      color: #334e68;
+      font-size: 1.25rem;
+    }
+
+    section > h2 + h3 {
+      margin-top: 0;
+    }
+
+    /* 教育经历 */
+    .education-item {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      padding: 2rem;
+      margin: 1.5rem 0;
+      border-radius: 15px;
+      border-left: 5px solid #3498db;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .education-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 22px rgba(45, 55, 72, 0.12);
+    }
+
+    .education-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .education-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #2c3e50;
+    }
+
+    .education-period {
+      background: #3498db;
+      color: white;
+      padding: 0.3rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+    }
+
+    .education-details {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .education-item ul {
+      padding-left: 1.35rem;
+    }
+
+    .detail-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .detail-label {
+      font-weight: 600;
+      color: #555;
+      min-width: 80px;
+    }
+
+    /* 技能标签 */
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .skill-category {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    }
+
+    .skill-category h3 {
+      color: #2c3e50;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+      border-bottom: 2px solid #3498db;
+      padding-bottom: 0.5rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .skill-tag {
+      background: linear-gradient(135deg, #3498db, #2980b9);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+
+    .skill-tag:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    /* 获奖情况 */
+    .awards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .award-item {
+      background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+      padding: 1.5rem;
+      border-radius: 10px;
+      border-left: 4px solid #e74c3c;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+
+    .award-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+
+    .award-title {
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 0.5rem;
+    }
+
+    .award-details {
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    /* 博客统计 */
+    .blog-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .stat-item {
+      background: linear-gradient(135deg, #3498db, #2980b9);
+      color: white;
+      padding: 2rem 1rem;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 700;
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    /* 研究项目 */
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
+      gap: 1.5rem;
+    }
+
+    .research-item {
+      background: white;
+      border: 1px solid #e9ecef;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+    }
+
+    .research-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 24px rgba(45, 55, 72, 0.13);
+    }
+
+    .research-header {
+      background: linear-gradient(135deg, #34495e, #2c3e50);
+      color: white;
+      padding: 1.5rem;
+    }
+
+    .research-content {
+      padding: 1.5rem;
+    }
+
+    .research-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      overflow-wrap: anywhere;
+    }
+
+    .research-meta {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    .featured-publication {
+      grid-column: 1 / -1;
+      border-color: #90cdf4;
+      box-shadow: 0 8px 24px rgba(49, 130, 206, 0.16);
+    }
+
+    .featured-publication .research-header {
+      background: linear-gradient(135deg, #1f4e79, #2b6cb0);
+    }
+
+    .featured-publication .research-title {
+      font-size: 1.25rem;
+    }
+
+    .publication-badge {
+      display: inline-block;
+      margin-bottom: 0.75rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+      background: #ebf8ff;
+      color: #1f4e79;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .publication-authors {
+      margin-bottom: 0.55rem;
+      color: #4a5568;
+    }
+
+    .publication-venue {
+      color: #4a5568;
+    }
+
+    .publication-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-top: 1rem;
+    }
+
+    .publication-link {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.45rem 0.8rem;
+      border: 1px solid #3182ce;
+      border-radius: 8px;
+      color: #2b6cb0;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .publication-link:hover {
+      background: #2b6cb0;
+      color: white;
+    }
+
+    /* 下载按钮 */
+    .download-section {
+      text-align: center;
+      padding: 3rem;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      border-radius: 15px;
+      margin: 3rem 0;
+    }
+
+    .download-btn {
+      background: linear-gradient(135deg, #e74c3c, #c0392b);
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 30px;
+      text-decoration: none;
+      display: inline-block;
+      font-weight: 600;
+      box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+      transition: all 0.3s ease;
+      margin: 0.35rem;
+    }
+
+    .download-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+    }
+
+    .download-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    /* 页脚 */
+    footer {
+      background: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 3rem;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-links {
+      margin-bottom: 1rem;
+    }
+
+    .footer-links a {
+      color: #bdc3c7;
+      text-decoration: none;
+      margin: 0 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: #3498db;
+    }
+
+    .copyright {
+      font-size: 0.9rem;
+      color: #95a5a6;
+      line-height: 1.5;
+    }
+
+    .beian-info {
+      margin-top: 0.5rem;
+    }
+
+    .beian-info a {
+      color: #95a5a6;
+      text-decoration: none;
+      margin: 0 0.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .beian-info a:hover {
+      color: #3498db;
+    }
+
+    /* 响应式设计 */
+    @media (max-width: 768px) {
+      nav ul {
+        justify-content: flex-start;
+      }
+
+      nav a {
+        padding: 0.45rem 0.65rem;
+        font-size: 0.9rem;
+      }
+
+      header {
+        padding: 58px 18px 72px;
+      }
+
+      .profile-container {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .profile-info h1 {
+        font-size: 2rem;
+      }
+
+      .profile-info p {
+        font-size: 1rem;
+      }
+
+      .education-details {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-container,
+      .research-grid {
+        grid-template-columns: 1fr;
+      }
+
+      main {
+        margin-top: -20px;
+        padding: 42px 18px;
+        border-radius: 18px 18px 0 0;
+      }
+
+      h2 {
+        font-size: 1.65rem;
+      }
+
+      .education-item,
+      .skill-category {
+        padding: 1.35rem;
+      }
+
+      .education-period {
+        margin-top: 0.65rem;
+      }
+
+      .download-section {
+        padding: 2rem 1rem;
+      }
+
+      .footer-links a {
+        margin: 0 0.5rem;
+        font-size: 0.9rem;
+      }
+
+      .beian-info {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+      }
+
+      .beian-info a {
+        margin: 0;
+      }
+    }
+
+    /* 滚动动画 */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in {
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
 </head>
-<body>
-<!--     <h1>Seeking for a Master Degree...</h1>   -->
-    <br>
-</body>
-</html>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<style media="screen" type="text/css">
-		<link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" media="screen" />
-		body{
-			border: 0pt none;
-			font-family: inherit;
-			font-size: 100%;
-			font-style: inherit;
-			font-weight: inherit;
-			margin: 0pt;
-			outline-color: invert;
-			outline-style: none;
-			outline-width: 0pt;
-			padding: 0pt;
-			vertical-align: baseline;
-		}
-		body {
-			position: relative;
-			margin: 3em auto 2em auto;
-			width: 1080px;
-			font-family: Times New Roman, Lato, Verdana, Helvetica, sans-serif;
-			font-size: 14px;
-			background: #fdfdfd;
-		}
-		</style>
-
-	<script>
-		var _hmt = _hmt || [];
-		(function() {
-			var hm = document.createElement("script");
-			hm.src = "https://hm.baidu.com/hm.js?1ec4ad5c61857459aa78d5ee7ddee28d";
-			var s = document.getElementsByTagName("script")[0];
-			s.parentNode.insertBefore(hm, s);
-		})();
-	</script>
-</head>
 
 <body>
-	<table align="center">
-	<tr>
-	<td align="center"><img border=0 style="border-radius:8px;" height="210" width="150" src="img/profile.jpeg"></td>
-	<td align="center">&nbsp</td>
-	<td align="center">&nbsp</td>
-	<td align="center">
-		<td align="center"><h2>YIDA CHENG</h2>
-		     <p><font size=+1><b>陈怡达（学习大佬的网页，然后进行修改ing）</b><br><br>Software Engineer<br><a href="http://www.momenta.ai/" target="_blank"><b>Momenta.ai</b></a></font></p>
-		     <p><font size=+1>Email: <a href="mailto:chen@yida.cool"><i>chen@yida.cool</i></a></font><br></p>
-		     <p align="center">
-			    &nbsp;&nbsp;&nbsp;&nbsp;
-				<!-- GitHub -->
-					<a href="https://github.com/Charmve" target="_blank">
-					  <img src="https://img.icons8.com/material-sharp/24/000000/github.png" alt="Github" width="26px"/>
-					</a>
-					&emsp;
-				<!-- CSDN -->
-					<a href="https://blog.csdn.net/Charmve" target="_blank">
-						<img src="img/logo/CSDN.png" alt="CSDN" width="30px"/>
-					</a>
-					&emsp;
-				<!-- WeChat Office Account
-					<a href= "https://github.com/ChromeWei/PaperWeeklyAI/blob/master/MaiweiAI-com.png" target="_blank">
-						<img src="img/logo/WeChat_Office_Account.png" alt="WeChat Office Account" width="26px"/>
-					</a>
-					&emsp;
-				-->
-				<!-- Zhihu --->
-					<a href= "https://www.zhihu.com/column/machine-learning2pthon" target="_blank">
-						<img src="img/logo/zhihu.png" alt="ZhiHu" width="35px"/>
-					</a>     
-					&emsp;     
-				<!-- Kaggle -->
-					<a href= "https://www.kaggle.com/yidazhang07/" target="_blank">
-						<img src="img/logo/icons8-kaggle-32.png" alt="Kaggle" width="28px"/>
-					</a>
-					&emsp;
-				<!-- Google Scholar -
-					<a href= " " target="_blank">
-						<img src="img/logo/google-scholar.png" alt="Google Scholar" width="28px"/>
-					</a>
-					&emsp;
-				-->
-				<!-- WeChat --
-					<a href= "https://github.com/Charmve/Charmve.github.io/tree/master/img/logo/My_WeChat.png" target="_blank">
-						<img src="img/logo/wechat.png" alt="WeChat" width="33px"/>
-					</a>
-					&emsp;
-				-->
-				<!-- My CV  -->
-					<a href="cv/ZhangWei-PhD%20application-15301453650.pdf" target="_blank">
-						<img src="img/logo/cv.png" alt="CV" width="33px"/>
-					</a>
-					&emsp;
-            </p>
-		</td>			
-	</td>		
-	</tr>
-	</table>
-	<br>
-	
-	<h2>Biography</h2>
-	<hr/>
-	<p>
-	    <font size="4">
-		    I’m employed at <a href="https://www.qcraft.ai/" target="_blank"><b>QCraft</b></a> and <a href="https://www.momenta.ai/" target="_blank"><b>Momenta</b></a> successively, both focus on automatic driving solutions for complex urban traffic scenes, as a Senior R&D Engineer. Before joining Momenta, I was employed at <a href="http://unicorn.360.cn/index" target="_blank">Future Security Labs</a> of <a href="https://b.360.cn/" target="_blank"> <b>Qihoo 360</b></a> as a Research SDE. 
-		    Before that, I have received B.Eng. and B.A. from <a href="http://en.yzu.edu.cn/">Yangzhou University(YZU)</a> in 2020, supervised by Dr. Lei CHEN and Dr. Xiaoying DENG at 601 Innovative Electronics Lab, 
-		    and also received academic guidance from <a href="http://wlxy.yzu.edu.cn/art/2016/9/13/art_26001_532008.html" target="_blank">Prof. Kaige GAO</a>. 
-		    
-		    <br><br>My research interests lie at <b>Machine Learning</b> and <b>Computer Vision</b>. To build practical theory for real machine intelligence, I am going to focusing on data-driven vision perception for autonomous vehicles.
-	    </font>
-        </p>
+  <a class="skip-link" href="#main-content">跳到主要内容</a>
+  <nav aria-label="主导航">
+    <ul>
+      <li><a href="#home" class="active">首页</a></li>
+      <li><a href="#education">教育经历</a></li>
+      <li><a href="#skills">技能专长</a></li>
+      <li><a href="#awards">获奖情况</a></li>
+      <li><a href="#research">研究成果</a></li>
+      <li><a href="#blog">技术博客</a></li>
+      <li><a href="#contact">联系方式</a></li>
+    </ul>
+  </nav>
 
-        <!-- Education
-	<p> </p>
-	<p><font size="4"><span class="label">&#10148;</span> <a href="http://www.yzu.edu.cn" target="_blank"> Yangzhou University <b>(YZU)</b></a>, 
-		<a href="http://wlxy.yzu.edu.cn/art/2018/12/14/art_7322_673658.html" target="_blank">School of Physical Science and Technology</a>
-		</font></p>
-	<table>
-		
-	<tr>
-		<td><font size="3"><b>·</b> &nbsp Bachelor of Science in Electronic Information Science & Technology, GPA: 83.2/100; Rank: 6/41 </font></td>
-	</tr>
-	<tr>	
-		<td><font size="3"><b>·</b> &nbsp <b>Dual Degree in Business English</b>, GPA: 80.76/100; Rank: 23/76, the second language: JLPT-N3:75 </font></td>
-	</tr>
-	<tr>	
-		<td><font size="3"><b>·</b> &nbsp Awards: Totally won <b>12</b> national and provincial awards, <b>28</b> municipal and school-level awards </font></td>
-	</tr>
-	</table>  
-
-	<p><font size="4"><span class="label">&#10148;</span> <a href="http://jyt.jiangsu.gov.cn/art/2018/12/5/art_58320_7944692.html" target="_blank"> Winter Academic Program</a> at
-		<a href="https://ese.nju.edu.cn/" target="_blank"> Nanjing University <b>(NJU)</b>, School of Electronic Science and Engineering</a>
-		</font></p>
-	<table>	
-	<tr>
-		<td><font size="3"><b>·</b> &nbsp Being <b>the only student</b> who passed the selection in YZU ( Only 100 undergraduates were selected from Jiangsu Province)  </font></td>
-	</tr>
-	<tr>	
-		<td><font size="3"><b>·</b> &nbsp Took part in academic lectures and artificial intelligence (AI) development trainings, received trainings in facial recognition, target detection and image processing etc.  </font></td>
-	</tr>
-	<tr>	
-		<td><font size="3"><b>·</b> &nbsp Orally reported the study of “<i>Identification of Agricultural Diseases and Pests Based-on Machine Vision</i>” as a <b>student representative</b> & <b>team leader</b> </font> <a href="https://www.bilibili.com/video/av91647038" target="_blank"><b>POSTER</b></a> </td>
-	</tr>
-	<tr>	
-		<td><font size="3"><b>·</b> &nbsp Completed the Arm Smarter Connected(ASC) Course on AI Development held by <i>Arm Education</i> and <i>IThing Edu</i> </font></td>
-	</tr>
-	</table>
- 	-->
-<!--	<br>-->
-
-<!--	<h2>Research Interests</h2>-->
-<!--	<hr/>-->
-<!--	<p>-->
-<!--		<font size="4">-->
-<!--			[<a href="https://github.com/Charmve" target="_blank"><img src="https://img.icons8.com/material-sharp/24/000000/github.png" style="vertical-align: bottom;" alt="Github" width="22px"/> GitHub</a>] &nbsp;&nbsp;-->
-<!--			<a href="https://blog.csdn.net/charmve/category_9657673.html" target="_blank">Machine Learning</a>, -->
-<!--			<a href="https://blog.csdn.net/charmve/category_10281912.html" target="_blank">Computer Vision</a>, -->
-<!--			<a href="https://blog.csdn.net/charmve/category_10266056.html" target="_blank">Deep Learning</a>-->
-<!--		</font>-->
-<!--	</p>-->
-<!--	<br>-->
-
-<!--	<h2>Books</h2>-->
-<!--	<hr/>-->
-<!--	<table>-->
-<!--	<tr>   -->
-<!--		<td><font size="3"><b>1.</b></font></td>&nbsp;&nbsp;-->
-<!--		<td><center><img width="180" src="img/publication/L0CV_profile-en.png" alt="Book: Computer Vision in Action" title="Book: Computer Vision in Action"></center></td>-->
-<!--		<td></td>-->
-<!--		<td></td>-->
-<!--		<td>-->
-<!--			<font size="4">-->
-<!--				<b>计算机视觉实战演练：算法与应用</b><br>-->
-<!--			</font>-->
-<!--			<font size="3">-->
-<!--				<b>Computer Vision in Action</b>-->
-<!--			</font>	    -->
-<!--			<font size="3">-->
-<!--				&nbsp;&nbsp; <br><br><b>Yida Chen*</b>-->
-<!--				&nbsp;&nbsp; <br> <i><b>Computer Vision Algorithms and Applications</b>, a Chinese e-book contains source code, notebook, reader exchange community. </i> -->
-<!--				&nbsp;&nbsp; <br><br>[<a href="https://charmve.github.io/L0CV-web" target="_blank">Project website</a>]-->
-<!--														| [<a href="https://charmve.github.io/computer-vision-in-action/" target="_blank"><b>📘 Online book</b></a>]-->
-<!--														| [<a href="https://github.com/Charmve/computer-vision-in-action" target="_blank"><img src="https://img.icons8.com/material-sharp/24/000000/github.png" style="vertical-align: bottom;" alt="Github" width="22px"/> GitHub</a>]-->
-<!--														| <a href="https://charmve.github.io/computer-vision-in-action/" target="_blank"><img src="https://img.shields.io/badge/在线阅读-简体中文-000000.svg?logo=GitBook" style="vertical-align: bottom;" alt="中文电子书"></a>-->
-<!--														<a href="https://github.com/Charmve/computer-vision-in-action/edit/master/README.md"><img src="https://img.shields.io/github/stars/Charmve/computer-vision-in-action?style=social" style="vertical-align: bottom;" alt="Stars"></a>-->
-<!--				<a href="https://github.com/Charmve/computer-vision-in-action/edit/master/README.md"><img src="https://img.shields.io/github/forks/Charmve/computer-vision-in-action?style=social" style="vertical-align: bottom;" alt="Forks"></a>-->
-<!--			</font>-->
-<!--		</td>-->
-<!--	</tr>-->
-<!--	<tr>   -->
-<!--		<td><font size="3"><b>2.</b></font></td>&nbsp;&nbsp;-->
-<!--		<td><center><img width="180" src="https://github.com/Charmve/OccNet-Course/assets/29084184/d44f4683-17fd-4193-9f5e-34ceec52db80" alt="OccNet-Course" title="OccNet-Course"></center></td>-->
-<!--		<td></td>-->
-<!--		<td></td>-->
-<!--		<td>-->
-<!--			<font size="4">-->
-<!--				<b>《从BEV到Occupancy Network：算法原理与工程实践》</b><br>-->
-<!--			</font>-->
-<!--			<font size="3">-->
-<!--				<b>国内首个占据栅格网络全栈课程</b>-->
-<!--			</font>	    -->
-<!--			<font size="3">-->
-<!--				&nbsp;&nbsp; <br><br><b>Yida Chen*</b>-->
-<!--				&nbsp;&nbsp; <br> <i><b>Surrounding Semantic Occupancy Perception Online Course for Autonomous Driving</b>, online-cource. </i> -->
-<!--				&nbsp;&nbsp; <br><br>[<a href="http://111.229.117.200:7001/" target="_blank">Course website</a>]-->
-<!--														| [<a href="https://charmve.github.io/OccNet-Course" target="_blank"><b>📘 Slides</b></a>]-->
-<!--														| [<a href="https://github.com/Charmve/OccNet-Course" target="_blank"><img src="https://img.icons8.com/material-sharp/24/000000/github.png" style="vertical-align: bottom;" alt="Github" width="22px"/> GitHub</a>]-->
-<!--														| <a href="https://charmve.github.io/OccNet-Course" target="_blank"><img src="https://img.shields.io/badge/在线阅读-简体中文-000000.svg?logo=GitBook" style="vertical-align: bottom;" alt="中文电子书"></a>-->
-<!--														<a href="https://github.com/Charmve/OccNet-Course/edit/master/README.md"><img src="https://img.shields.io/github/stars/Charmve/OccNet-Course?style=social" style="vertical-align: bottom;" alt="Stars"></a>-->
-<!--				<a href="https://github.com/Charmve/OccNet-Course/edit/master/README.md"><img src="https://img.shields.io/github/forks/Charmve/OccNet-Course?style=social" style="vertical-align: bottom;" alt="Forks"></a>-->
-<!--			</font>-->
-<!--		</td>-->
-<!--	</tr>-->
-<!--	</table>-->
-<!--	<br>-->
-
-	<!--
-        <h2>Research Experience</h2>
-	<hr/>
-	<table>
-	<!--
-	    <tr>   
-		<td><font size="3"><b>5.</b></font></td>&nbsp;&nbsp;
-		<td><center><img width="260" src="img/project/surface_dataset.png" alt="Surface Defect Detection"></center></td>
-		<td></td><td></td>
-		<td>
-			<font size="4">
-                <b>   Surface Defect Detection: Paper & Dataset</b>
-			</font>	    
-			<font size="3">
-			<br>
-			<br>Constantly summarizing open source dataset and important critical papers in the field of surface defect research are very important.
-			<br><br> NEU-CLS, elpv-dataset, KolektorSDD, DeepPCB, AITEX, DAGM 2007, Cracks on the surface of the construction, Magnetic Tile, RSDDs Kylberg Texture, etc.
-                        <ul class="list-inline">
-                            <a class="github-button"
-                                href="https://github.com/Charmve/Surface-Defect-Detection"
-                                data-icon="octicon-star" data-show-count="true"
-                                aria-label="Star Charmve/Surface-Defect-Detection on GitHub">Star</a>
-                            <a class="github-button"
-                                href="https://github.com/Charmve/Surface-Defect-Detection/fork"
-                                data-icon="octicon-repo-forked" data-show-count="true"
-                                aria-label="Fork Charmve/Surface-Defect-Detection on GitHub">Fork</a>
-                       </ul>
-		       <br><img src="https://img.icons8.com/material-sharp/24/000000/github.png" alt="Github" width="22px"/>
-			    <a href="https://github.com/Charmve/Surface-Defect-Detection" target="_blank">https://github.com/Charmve/Surface-Defect-Detection</a>
-		       <br><br>
-		</td>
-	    </tr> --
-	    <tr>   
-		<td><font size="3"><b>5.</b></font></td>&nbsp;&nbsp;
-		<td><center><img width="260" src="img/project/VOGUE.png" alt="Surface Defect Detection"></center></td>
-		<td></td><td></td>
-		<td>
-			<font size="4">
-				<b>   Try-On by StyleGAN Interpolation Optimization</b>
-			</font>	    
-			<font size="3">
-			<br>
-			<br>Personal repository for "VOGUE: Try-On by StyleGAN Interpolation Optimization" (CVPR 2021), which is a StyleGAN interpolation optimization algorithm for photo-realistic try-on. SOTA results for garments to deform according to the given body shape, while preserving pattern and material details.
-			<br>
-			<ul class="list-inline">
-					<a class="github-button"
-						href="https://github.com/Charmve/VOGUE-Try-On"
-						data-icon="octicon-star" data-show-count="true"
-						aria-label="Star Charmve/Surface-Defect-Detection on GitHub">Star</a>
-					<a class="github-button"
-						href="https://github.com/Charmve/VOGUE-Try-On/fork"
-						data-icon="octicon-repo-forked" data-show-count="true"
-						aria-label="Fork Charmve/Surface-Defect-Detection on GitHub">Fork</a>
-			</ul>
-			<br>
-			<a href="https://github.com/Charmve/VOGUE-Try-On" target="_blank">
-				<img src="https://img.icons8.com/material-sharp/24/000000/github.png" style="vertical-align: bottom;" alt="Github" width="22px"/> GitHub
-			</a>
-			 | <a href="https://charmve.github.io/VOGUE-Try-On/web_home/demo_rewrite.html" target="_blank">✅ demo</a>
-			 | <a href="https://charmve.github.io/VOGUE-Try-On/web_home/" target="_blank">📄 Homepage</a>
-			<br><br>
-		</td>
-	</tr>
-	<tr>   
-		<td><font size="3"><b>4.</b></font></td>&nbsp;&nbsp;
-		<td><center><img width="260" src="img/project/stegastamp.png" alt="Surface Defect Detection"></center></td>
-		<td></td><td></td>
-		<td>
-			<font size="4">
-                <b>   StegaStamp-plus</b>
-			</font>	    
-			<font size="3">
-			<br>
-			<br> The project explores hiding data in images while maintaining perceptual similarity. Our contribution is the ability to extract the data after the encoded image (StegaStamp) has been printed and photographed with a camera (these steps introduce image corruptions).
-			<br>
-                        <ul class="list-inline">
-                            <a class="github-button"
-                                href="https://github.com/Charmve/StegaStamp-plus"
-                                data-icon="octicon-star" data-show-count="true"
-                                aria-label="Star Charmve/Surface-Defect-Detection on GitHub">Star</a>
-                            <a class="github-button"
-                                href="https://github.com/Charmve/StegaStamp-plus/fork"
-                                data-icon="octicon-repo-forked" data-show-count="true"
-                                aria-label="Fork Charmve/Surface-Defect-Detection on GitHub">Fork</a>
-                       </ul>
-		       <br>
-				<a href="https://github.com/Charmve/StegaStamp-plus" target="_blank">
-					<img src="https://img.icons8.com/material-sharp/24/000000/github.png" style="vertical-align: bottom;" alt="Github" width="22px"/> GitHub
-				</a>
-				 | <a href="https://colab.research.google.com/github/Charmve/StegaStamp/blob/master/StegaStamp_train_model.ipynb" target="_blank">📄 Colab</a>
-		         | [<a href="https://charmve.github.io/steganography.js/examples/showcase/" target="_blank"><b>steganography.js</b></a>] | [<a href="https://github.com/Charmve/PyStegosploit" target="_blank"><b>PyStegosploit</b></a>]
-				<br><br>
-		</td>
-	</tr>
-	<tr>   
-		<td><font size="3"><b>3.</b></font></td>&nbsp;&nbsp;
-		<td><center><img width="260" src="img/project/glrass_detection.jpg" alt="GlassDetection"></center></td>
-		<td></td><td></td>
-		<td>
-			<font size="4">
-			    <b>  Mirror & Glass Detection in Real-world Scenes </b>
-			</font>	    
-			<font size="3">
-		            <br>
-			    <br>   I'm more interested in detecting general glass surfaces that may not possess any special properties, 
-				and am developing computational models for automatic detection and segmentation of mirror and transparent glass surfaces.
-			    <br>
-				Thanks for <i>cs.cityu.edu.hk.</i>
-			    <br>
-			    <ul class="list-inline">
-                                 <a class="github-button"
-                                     href="https://github.com/Charmve/Mirror-Glass-Detection"
-                                     data-icon="octicon-star" data-show-count="true"
-                                     aria-label="Star Charmve/Mirror-Glass-Detection on GitHub">Star</a>
-                                 <a class="github-button"
-                                     href="https://github.com/Charmve/Mirror-Glass-Detection/fork"
-                                     data-icon="octicon-repo-forked" data-show-count="true"
-                                     aria-label="Fork Charmve/Mirror-Glass-Detection on GitHub">Fork</a>
-                            </ul>
-			    <br>
-				<a href="https://github.com/Charmve/Mirror-Glass-Detection" target="_blank">
-					<img src="https://img.icons8.com/material-sharp/24/000000/github.png" style="vertical-align: bottom;" alt="Github" width="22px"/> GitHub
-				</a>
-			    <br><br>
-			</font>
-		</td>
-	</tr>
-	<tr>   
-		<td><font size="3"><b>2.</b></font></td>&nbsp;&nbsp;
-		<td><center><img width="260" src="img/project/sne-roadseg.png" alt="SNE-RoadSeg2"></center></td>
-		<td></td><td></td>
-		<td>
-			<font size="4">
-			    <b>   SNE-RoadSeg2: Accurate Freespace Detection</b>
-			</font>	    
-			<font size="3">
-			    <br>
-			    <br>   PyTorch implementation of <i>SNE-RoadSeg: Incorporating Surface Normal Information into Semantic Segmentation for Accurate Freespace Detection</i> 
-			    <br>
-                            <ul class="list-inline">
-                                <a class="github-button"
-                                    href="https://github.com/Charmve/SNE-RoadSeg2"
-                                    data-icon="octicon-star" data-show-count="true"
-                                    aria-label="Star Charmve/SNE-RoadSeg2 on GitHub">Star</a>
-                                <a class="github-button"
-                                    href="https://github.com/Charmve/SNE-RoadSeg2/fork"
-                                    data-icon="octicon-repo-forked" data-show-count="true"
-                                    aria-label="Fork Charmve/SNE-RoadSeg2 on GitHub">Fork</a>
-                            </ul>
-			    <br>
-				<a href="https://github.com/Charmve/SNE-RoadSeg2" target="_blank">
-					<img src="https://img.icons8.com/material-sharp/24/000000/github.png" style="vertical-align: bottom;" alt="Github" width="22px"/> GitHub
-				</a>
-				| <a href="http://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123750341.pdf" target="_blank">📄 Paper</a>
-			    <br><br>
-			</font>
-		</td>
-	</tr>
-	<tr>   
-		<td><font size="3"><b>1.</b></font></td>&nbsp;&nbsp;
-		<td><center><img width="260" src="https://img-blog.csdnimg.cn/20200706154355286.png" alt="LightCube"></center></td>
-		<td></td><td></td>
-		<td>
-			<font size="4">
-				<b>   Light Cube: A Design of 3D Dynamic Display System Based-on Voice Control</b>
-			</font>	    
-			<font size="3">
-			<br>
-			    <br>   In this paper, a 3D dynamic display system based-on voice control is presented, which solves the existing light cube display color single, low resolution, poor human-computer interaction performance, complex design, high cost, etc.
-			    <br><br>
-             <ul class="list-inline">
-                 <a class="github-button"
-                     href="https://github.com/Charmve/LightCube"
-                     data-icon="octicon-star" data-show-count="true"
-                     aria-label="Star Charmve/Design-of-a-3D-Dynamic-Display-System-Based-on-Voice-Control on GitHub">Star</a>
-                 <a class="github-button"
-                     href="https://github.com/Charmve/LightCube/fork"
-                     data-icon="octicon-repo-forked" data-show-count="true"
-                     aria-label="Fork Charmve/Design-of-a-3D-Dynamic-Display-System-Based-on-Voice-Control on GitHub">Fork</a>
-             </ul>
-			    <br>
-				<a href="https://github.com/Charmve/LightCube" target="_blank">
-					<img src="https://img.icons8.com/material-sharp/24/000000/github.png" style="vertical-align: bottom;" alt="Github" width="22px"/> GitHub
-				</a>
-				   | <a href="./doc/papers/一种基于语音控制的3D动态显示系统设计.pdf" target="_blank">📄 Paper (Chinese)</a> 
-				   | <a href="./doc/src/基于FPGA的智能语音3D动态显示系统·Slides.pdf" target="_blank">🔳 Slides</a> 
-				   | <a href="https://charmve.github.io/doc/src/基于FPGA的智能语音3D动态显示系统·Slides.pdf" target="_blank">📄 Patents</a> 
-				   | <a href="https://www.bilibili.com/video/BV1cJ411C7NR" target="_blank">🎥 Video</a>
-				   | <a href="https://github.com/Charmve/EmotionCube" target="_blank">🚀 EmotionCube</a>
-		    	<br><br>
-			</font>
-		</td>
-	</tr>
-	<--
-	<tr>   
-		<td><font size="3"><b>1.</b></font></td>&nbsp;&nbsp;
-		<td><center><img width="260" src="img/project/bles_profile.jpg" alt="BLESec"></center></td>
-		<td></td><td></td>
-		<td>
-			<font size="4">
-			    <b>   Bluetooth-LE Security: Method, Tools and Protocol Stack</b>
-			</font>	    
-			<font size="3">
-			<br>
-			    <br>
-			       The dangers of Bluetooth Low Energy(BLE) implementations: Unveiling zero day vulnerabilities and security flaws in modern Bluetooth LE stacks. BLE automatic fuzz tool. I am familiar with BLE protocol stack, BLE vulnerability mining, blocking, and relay <sup>[5~9]</sup>
-			    <br>
-                            <ul class="list-inline">
-                                <a class="github-button"
-                                    href="https://github.com/Charmve/BLE-Security-Attack-Defence"
-                                    data-icon="octicon-star" data-show-count="true"
-                                    aria-label="Star Charmve/BLE-Security-Attack-Defence on GitHub">Star</a>
-                                <a class="github-button"
-                                    href="https://github.com/Charmve/BLE-Security-Attack-Defence/fork"
-                                    data-icon="octicon-repo-forked" data-show-count="true"
-                                    aria-label="Fork Charmve/BLE-Security-Attack-Defence on GitHub">Fork</a>
-                            </ul>
-			    <br><a href="https://github.com/Charmve/BLE-Security-Attack-Defence" target="_blank">
-					<img src="https://img.icons8.com/material-sharp/24/000000/github.png" alt="Github" width="22px"/> GitHub
-				</a>
-			    <br><br>
-			</font>
-		</td>
-	</tr>
-	--
-	</table>
-	<br> 
-        -->
-	
-	<!--
-	<h2>✨ News! ✨</h2>
-	<hr/>
-	<ul>
-		<li><font size="4"><b>2020.03.06:</b> 1 paper was accepted by <a href="https://www.2020.ieeeicme.org/" target="_blank">ICME 2020</a> !</font></li>
-		<li><font size="4"><b>2020.02.24:</b> 1 paper was accepted by <a href="http://cvpr2020.thecvf.com/" target="_blank">CVPR 2020</a> !</font></li>
-	</ul>
-	<br>
-	-->
-<!--	-->
-<!--	<h2>Publications &nbsp;<a href="https://github.com/Charmve" target="_blank"><img src="img/logo/google-scholar.png" alt="Google Scholar" width="64px"/></a></h2>-->
-<!--	<hr/>-->
-<!--	<table>-->
-<!--		<tr>-->
-<!--			<td><br><font size="4"><b>2020</b></font></td>-->
-<!--		</tr>-->
-<!--		<tr>-->
-<!--			<td><font size="4">5.&nbsp</font></td>-->
-<!--			<td><center><img width="280" height="220" src="img/publication/survey-fpga-accelerator.png"></center></td>-->
-<!--			<td>-->
-<!--				<font size="4">-->
-<!--					<b>Field Programmable Gate Array-Based Convolutional Neural Network Accelerators: A Survey</b>-->
-<!--				</font>-->
-<!--				<font size="3">-->
-<!--					&nbsp;&nbsp; <br><br><b>Yida Chen*</b>-->
-<!--					&nbsp;&nbsp; <br> <i><b>International Journal of Electronics and Communication Engineering</b>. 14(12) 2020. 419-427.</i> https://publications.waset.org/10011686/pdf-->
-<!--					&nbsp;&nbsp; <br><br>[<a href="https://panel.waset.org/downloads/20/papers2/a-survey-of-fpga-based-cnns-accelerators%5B3%5D.pdf" target="_blank">ICA 2020</a>]-->
-<!--																| [<a href="https://publications.waset.org/10011686/pdf" target="_blank"><b>PDF</b></a>]-->
-<!--																| [<a href="https://publications.waset.org/10011686/bibtex" target="_blank">BibTeX</a>]-->
-<!--																| [<a href="https://publications.waset.org/10011686/endnote" target="_blank">EndNote</a>]-->
-<!--				</font>-->
-<!--			</td>-->
-<!--		</tr>-->
-<!--		<tr>-->
-<!--			<td><font size="4">4.&nbsp</font></td>-->
-<!--			<td><center><img width="280" height="220" src="img/publication/Large%20single%20crystals.jpg"></center></td>-->
-<!--			<td>-->
-<!--				<font size="4">-->
-<!--					&nbsp;&nbsp;<b>Pyroelectricity and field-induced spin-flop in (4-(Aminomethyl)pyridinium)<sub>2</sub>MnCl<sub>4</sub> · 2H<sub>2</sub>O</b>-->
-<!--				</font>-->
-<!--				<font size="3">-->
-<!--					<br><br>&nbsp;&nbsp;Kaige Gao, Chunlin Liu, <b>Yida Chen</b>, Kangni Wang and Wenlong Liu-->
-<!--					<br>&nbsp;&nbsp;<i>2020 <b>R. Soc. Open Sci</b>. 7: 200271.</i> https://doi.org/10.1098/rsos.200271-->
-<!--					<br><br>&nbsp;&nbsp;[<b><a href="https://royalsocietypublishing.org/doi/pdf/10.1098/rsos.200271" target="_blank">PDF</a></b>] -->
-<!--					| [<a href="https://royalsocietypublishing.org/doi/suppl/10.1098/rsos.200271" target="_blank">Supplemental Material</a>]-->
-<!--					<br><br><details><summary>BibTeX</summary>Gao Kaige, Liu Chunlin, Zhang Wei, Wang Kangni and Liu Wenlong. Pyroelectricity and field-induced spin-flop in (4-(Aminomethyl)pyridinium)<sub>2</sub>MnCl<sub>4</sub> · 2H<sub>2</sub>O. 2020. <i>R. Soc. open sci.7200271</i>-->
-<!--	http://doi.org/10.1098/rsos.200271</details>-->
-<!--				</font>-->
-<!--			</td>-->
-<!--		</tr>-->
-<!--	</table>-->
-<!--	<table>-->
-<!--		<tr>-->
-<!--			<td><br><font size="4"><b>2021</b></font></td>-->
-<!--		</tr>-->
-<!--		<tr>	-->
-<!--			<td><br><font size="4">3.</font> &nbsp; <font size="4"><b>Yida Chen</b>. A Design of 3D Dynamic Display System Based-on Voice Control[J]. &nbsp; <i>Internet of Things Technologies</i>.2022,12(6):62-66</font></td>-->
-<!--		</tr>-->
-<!--		<tr>	-->
-<!--			<td><br><font size="4">2.</font> &nbsp; <font size="4"><b>Yida Chen</b>. F-LS: An indoor positioning method and implementation based on Bluetooth low energy location fingerprint-least squares fusion[J]. &nbsp; <i>Internet of Things Technologies</i>. 2022,12(03):4-6.DOI:10.16667/j.issn.2095-1302.2022.03.001.</font></td>-->
-<!--		</tr>-->
-<!--		<tr>	-->
-<!--			<td><br><font size="4">1.</font> &nbsp; <font size="4"><b>Yida Chen</b>. A Simulated Electromagnetic Curved Shooting Gun Based on Monocular Ranging: Design and Implementation[J]. &nbsp; <i>Electronics World</i>. (Preprint)</font></td>-->
-<!--		</tr>-->
-<!--	</table>-->
-<!--	<br>-->
-
-<!--	<h2>Patents</h2>-->
-<!--	<hr/>-->
-<!--	<table>-->
-<!--	<tr>   -->
-<!--		<td><font size="3"><b>23.</b></font></td>-->
-<!--		<td><center><img width="260" src="img/patants/patent-regression_benchmark.png" alt="patent-regression_benchmark"></center></td>-->
-<!--		<td></td><td></td>-->
-<!--		<td>-->
-<!--			<font size="4">-->
-<!--				<b>一种性能测试方法、装置、设备及存储介质</b>-->
-<!--				<br>A Performance Testing Method, Device, Equipment and Storage Medium [P], -->
-<!--			</font>-->
-<!--			<font size="3">-->
-<!--                            &nbsp;&nbsp; <br><b>Yida Chen</b>.-->
-<!--			    &nbsp;&nbsp; <br> -->
-<!--			    &nbsp;&nbsp; <br>[<a href="https://www.qcc.com/zhuanliDetail/098727c9389ed3e2f5072d0c16d8a5b4.html" target="_blank"><b>PDF</b></a>] | [<a href="https://github.com/Charmve/ecc_beta" target="_blank"><b>GitHub</b></a>]-->
-<!--			</font>-->
-<!--		</td>-->
-<!--	</tr>-->
-<!--	<tr>   -->
-<!--		<td><font size="3"><b>22.</b></font></td>-->
-<!--		<td><center><img width="260" src="img/patants/patent-data_backflow.jpeg" alt="Data Playback Tool"></center></td>-->
-<!--		<td></td><td></td>-->
-<!--		<td>-->
-<!--			<font size="4">-->
-<!--				<b>一种自动驾驶的数据回流处理系统</b>-->
-<!--				<br>A Data Backflow Processing System for Autonomous Driving [P], CN116353614A-->
-<!--			</font>-->
-<!--			<font size="3">-->
-<!--                            &nbsp;&nbsp; <br><b>Yida Chen</b>.-->
-<!--			    &nbsp;&nbsp; <br> -->
-<!--			    &nbsp;&nbsp; <br>[<a href="https://www.qcc.com/zhuanliDetail/098727c9389ed3e2f5072d0c16d8a5b4.html" target="_blank"><b>PDF</b></a>] | [<a href="https://github.com/Charmve/ecc_beta" target="_blank"><b>GitHub</b></a>]-->
-<!--			</font>-->
-<!--		</td>-->
-<!--	</tr>-->
-<!--	<tr>   -->
-<!--		<td><font size="3"><b>21.</b></font></td>-->
-<!--		<td><center><img width="260" src="img/patants/patent-shared_message.jpeg" alt="Data Playback Tool"></center></td>-->
-<!--		<td></td><td></td>-->
-<!--		<td>-->
-<!--			<font size="4">-->
-<!--				<b>一种共享消息的管理方法</b>-->
-<!--				<br>A Management Method for Sharing Messages in Autonomous Driving Systems [P], CN115114048A-->
-<!--			</font>-->
-<!--			<font size="3">-->
-<!--                            &nbsp;&nbsp; <br><b>Yida Chen</b>.-->
-<!--			    &nbsp;&nbsp; <br> -->
-<!--			    &nbsp;&nbsp; <br>[<a href="https://patent-image.qichacha.com/pdf/44e72a8e090664d9197414f6d7586e70.pdf" target="_blank"><b>PDF</b></a>] | [<a href="https://github.com/Charmve/ecc_beta" target="_blank"><b>GitHub</b></a>]-->
-<!--			</font>-->
-<!--		</td>-->
-<!--	</tr>-->
-<!--	<tr>   -->
-<!--		<td><font size="3"><b>20.</b></font></td>-->
-<!--		<td><center><img width="260" src="img/patants/patent-pub_and_sub.jpeg" alt="Data Playback Tool"></center></td>-->
-<!--		<td></td><td></td>-->
-<!--		<td>-->
-<!--			<font size="4">-->
-<!--				<b>面向自动驾驶系统内部模块的消息发布-订阅处理方法</b> [Authorized]-->
-<!--				<br>Message Pub&Sub Processing Methods for Internal Modules of Autonomous Driving Systems [P], CN115080268B-->
-<!--			</font>-->
-<!--			<font size="3">-->
-<!--                            &nbsp;&nbsp; <br><b>Yida Chen</b>.-->
-<!--			    &nbsp;&nbsp; <br> -->
-<!--			    &nbsp;&nbsp; <br>[<a href="https://www.qcc.com/zhuanliDetail/0d2adc1030db1810f294e9e46ec6eedf.html" target="_blank"><b>PDF</b></a>] | [<a href="https://github.com/Charmve/ecc_beta" target="_blank"><b>GitHub</b></a>]-->
-<!--			</font>-->
-<!--		</td>-->
-<!--	</tr>-->
-<!--	<tr>   -->
-<!--		<td><font size="3"><b>19.</b></font></td>-->
-<!--		<td><center><img width="260" src="img/patants/patent-hil_replay.jpeg" alt="Data Playback Tool"></center></td>-->
-<!--		<td></td><td></td>-->
-<!--		<td>-->
-<!--			<font size="4">-->
-<!--				<b>一种自动驾驶系统对采集数据进行回放的处理方法</b>-->
-<!--				<br>A Processing Method for Automatic Driving System to Play back Collected Data [P], CN115062190A-->
-<!--			</font>-->
-<!--			<font size="3">-->
-<!--                            &nbsp;&nbsp; <br><b>Yida Chen</b>.-->
-<!--			    &nbsp;&nbsp; <br> -->
-<!--			    &nbsp;&nbsp; <br>[<a href="" target="_blank"><b>PDF</b></a>] | [<a href="https://github.com/Charmve/ws_play" target="_blank"><b>GitHub</b></a>]-->
-<!--			</font>-->
-<!--		</td>-->
-<!--	</tr>-->
-<!--	<tr>   -->
-<!--		<td><font size="3"><b>18.</b></font></td>-->
-<!--		<td><center><img width="260" src="img/patants/Pantent-Data_Playback.png" alt="Data Playback Tool"></center></td>-->
-<!--		<td></td><td></td>-->
-<!--		<td>-->
-<!--			<font size="4">-->
-<!--				<b>面向量产自动驾驶系统的全算法数据回放方法、系统、设备及存储介质</b>-->
-<!--				<br>A Full Algorithm Data Playback Tool, Equipment and Storage Medium for Automatic Driving System [P], -->
-<!--			</font>-->
-<!--			<font size="3">-->
-<!--                            &nbsp;&nbsp; <br><b>Yida Chen</b>.-->
-<!--			    &nbsp;&nbsp; <br> -->
-<!--			    &nbsp;&nbsp; <br>[<a href="" target="_blank"><b>PDF</b></a>] | [<a href="https://github.com/Charmve/wsbag2" target="_blank"><b>GitHub</b></a>]-->
-<!--			</font>-->
-<!--		</td>-->
-<!--	</tr>-->
-<!--	<tr>   -->
-<!--		<td><font size="3"><b>17.</b></font></td>-->
-<!--		<td><center><img width="260" src="img/patants/Patent-WSBag-Qemu.png" alt="Network Security Risk Assessment Method"></center></td>-->
-<!--		<td></td><td></td>-->
-<!--		<td>-->
-<!--			<font size="4">-->
-<!--				<b>一种自动驾驶虚拟仿真系统、方法、介质及设备</b>-->
-<!--				<br>Automatic Driving Virtual Simulation System Based-on QEMU [P], -->
-<!--			</font>-->
-<!--			<font size="3">-->
-<!--                            &nbsp;&nbsp; <br><br><b>Yida Chen</b>.-->
-<!--			    &nbsp;&nbsp; <br> -->
-<!--			    &nbsp;&nbsp; <br>[<a href="" target="_blank"><b>PDF</b></a>]  | [<a href="" target="_blank"><b>Slides</b></a>]-->
-<!--			</font>-->
-<!--		</td>-->
-<!--	</tr>-->
-<!--	<tr>   -->
-<!--		<td><font size="3"><b>16.</b></font></td>-->
-<!--		<td><center><img width="260" src="img/patants/Pantent-Data_Playback_Protocol.png" alt="A Compact Data Playback Protocol and Its Implementation"></center></td>-->
-<!--		<td></td><td></td>-->
-<!--		<td>-->
-<!--			<font size="4">-->
-<!--				<b>一种数据转换方法、数据结构、转换装置、介质及设备</b>-->
-<!--				<br>A Compact Data Playback Protocol and Its Implementation [P], -->
-<!--			</font>-->
-<!--			<font size="3">-->
-<!--                            &nbsp;&nbsp; <br><br><b>Yida Chen</b>.-->
-<!--			    &nbsp;&nbsp; <br> -->
-<!--			    &nbsp;&nbsp; <br>[<a href="" target="_blank"><b>PDF</b></a>] | [<a href="https://github.com/Charmve/wsbag2" target="_blank"><b>GitHub</b></a>]-->
-<!--			</font>-->
-<!--		</td>-->
-<!--	</tr>-->
-<!--	<tr>   -->
-<!--		<td><font size="3"><b>15.</b></font></td>-->
-<!--		<td><center><img height="240" src="img/patants/Patent_Blind Watermark.png" alt="Embedding Blind Watermark "></center></td>-->
-<!--		<td></td><td></td>-->
-<!--		<td>-->
-<!--			<font size="4">-->
-<!--				<b>一种基于深度学习的图像嵌入盲水印的方法、系统及设备</b>-->
-<!--				<br>A Method, System and Equipment for Embedding Blind Watermark in Image Based-on Deep Learning [P], -->
-<!--			</font>-->
-<!--			<font size="3">-->
-<!--                            &nbsp;&nbsp; <br><b>Yida Chen</b>.-->
-<!--			    &nbsp;&nbsp; <br> -->
-<!--			    &nbsp;&nbsp; <br>[<a href="" target="_blank"><b>PDF</b></a>] | [<a href="https://github.com/Charmve/StegaStamp-plus" target="_blank"><b>GitHub</b></a>]-->
-<!--			</font>-->
-<!--		</td>-->
-<!--	</tr>-->
-<!--	<tr>   -->
-<!--		<td><font size="3"><b>14.</b></font></td>-->
-<!--		<td><center><img width="260" src="img/patants/Patent_CVE-CPEs.png" alt="Vulnerability Matching Framework and System"></center></td>-->
-<!--		<td></td><td></td>-->
-<!--		<td>-->
-<!--			<font size="4">-->
-<!--				<b>漏洞匹配方法、装置、设备及存储介质</b><br>Vulnerability Matching Framework and System for Attack Assessment [P], -->
-<!--			</font>-->
-<!--			<font size="3">-->
-<!--                            &nbsp;&nbsp; <br><br><b>Yida Chen</b>.-->
-<!--			    &nbsp;&nbsp; <br> -->
-<!--			    &nbsp;&nbsp; <br>[<a href="" target="_blank"><b>PDF</b></a>] | [<a href="https://github.com/Charmve/iva-alpha" target="_blank"><b>GitHub</b></a>] | [<a href="http://13.76.167.12:8080/iva/sign_in.html" target="_blank"><b>Homepage</b></a>]-->
-<!--			</font>-->
-<!--		</td>-->
-<!--	</tr>-->
-<!--	<tr>   -->
-<!--		<td><font size="3"><b>12.</b></font></td>-->
-<!--		<td><center><img width="260" src="img/patants/Patent_SafetyAssessment.png" alt="Network Security Risk Assessment Method"></center></td>-->
-<!--		<td></td><td></td>-->
-<!--		<td>-->
-<!--			<font size="4">-->
-<!--				<b>攻击者视角下的安全评估方法、装置、设备及存储介质</b><br>Network Security Risk Assessment Method, Device, Equipment and Storage Medium [P], -->
-<!--			</font>-->
-<!--			<font size="3">-->
-<!--                            &nbsp;&nbsp; <br><br><b>Yida Chen</b>.-->
-<!--			    &nbsp;&nbsp; <br> -->
-<!--			    &nbsp;&nbsp; <br>[<a href="" target="_blank"><b>PDF</b></a>] | [<a href="" target="_blank"><b>Slides</b></a>] | [<a href="https://github.com/Charmve/iva-alpha" target="_blank"><b>GitHub</b></a>] | [<a href="http://13.76.167.12:8080/iva/sign_in.html" target="_blank"><b>Homepage</b></a>]-->
-<!--			</font>-->
-<!--		</td>-->
-<!--	</tr>-->
-<!--	<tr>   -->
-<!--		<td><font size="3"><b>11.</b></font></td>-->
-<!--		<td><center><img width="260" src="img/patants/Patent_BlindWatermark.png" alt="Image Embedding Blind Watermark"></center></td>-->
-<!--		<td></td><td></td>-->
-<!--		<td>-->
-<!--			<font size="4">-->
-<!--				<b>一种图像嵌入盲水印的方法、攻击方式及系统</b><br>An Algorithm, Attack Method and System for Image Embedding Blind Watermark [P], -->
-<!--			</font>-->
-<!--			<font size="3">-->
-<!--                            &nbsp;&nbsp; <br><br><b>Yida Chen</b>.-->
-<!--			    &nbsp;&nbsp; <br> -->
-<!--			    &nbsp;&nbsp; <br>[<a href="" target="_blank"><b>PDF</b></a>] | [<a href="https://charmve.github.io/doc/patents/20210511-一种图像嵌入盲水印的方法、攻击方式及系统.pdf" target="_blank"><b>Slides</b></a>] | [<a href="https://charmve.github.io/steganography.js/examples/showcase/" target="_blank"><b>Demo</b></a>] | [<a href="https://github.com/Charmve/PyStegosploit" target="_blank"><b>PyStegosploit</b></a>]-->
-<!--			</font>-->
-<!--		</td>-->
-<!--	</tr>-->
-<!--	<tr>   -->
-<!--		<td><font size="3"><b>10.</b></font></td>-->
-<!--		<td><center><img width="260" src="img/patants/Patent_TouchModule.gif" alt="Touch Control Module"></center></td>-->
-<!--		<td></td><td></td>-->
-<!--		<td>-->
-<!--			<font size="4">-->
-<!--				<b>一种触控模组、系统及反馈控制方法</b><br>Touch Control Module, System and Feedback Control Method [P], -->
-<!--			</font>-->
-<!--			<font size="3">-->
-<!--                            &nbsp;&nbsp; <br><br><b>Yida Chen</b>.-->
-<!--			    &nbsp;&nbsp; <br>CN113641261A,2021-11-12.-->
-<!--			    &nbsp;&nbsp; <br><br>[<a href="https://gb.global.cnki.net/KCMS/detail/detail.aspx?dbcode=SCPD&dbname=SCPD202102&filename=CN113641261A&uniplatform=OVERSEAS_CHS&v=61az9k8jcTl89q6jLdZsuv1onA792vNVMM6TDBfWC0ymvfX1B66GGfVmIqJPRl5O" target="_blank"><b>PDF</b></a>] | [<a href="https://charmve.github.io/doc/patents/20210428-多点触觉触控屏、系统及其制作方法.pdf" target="_blank"><b>Slides</b></a>]-->
-<!--			</font>-->
-<!--		</td>-->
-<!--	</tr>-->
-<!--	<tr>   -->
-<!--		<td><font size="3"><b>9.</b></font></td>-->
-<!--		<td><center><img width="260" src="img/patants/Patent_tracking.png" alt="Tracking Specific BLE"></center></td>-->
-<!--		<td></td><td></td>-->
-<!--		<td>-->
-<!--			<font size="4">-->
-<!--				<b>一种蓝牙设备追踪方法、装置、设备及存储介质</b><br>Bluetooth Device Tracking Method, Device, Equipment and Storage Medium [P], -->
-<!--			</font>-->
-<!--			<font size="3">-->
-<!--                            &nbsp;&nbsp; <br><br><b>Yida Chen</b>, Lei Ji.-->
-<!--			    &nbsp;&nbsp; <br> -->
-<!--			    &nbsp;&nbsp; <br>[<a href=" " target="_blank"><b>PDF</b></a>] | [<a href="https://charmve.github.io/doc/patents/360未来安全研究院_低功耗蓝牙安全研究_张伟.pdf" target="_blank"><b>Slides</b></a>]-->
-<!--			</font>-->
-<!--		</td>-->
-<!--	</tr>-->
-<!--	<tr>   -->
-<!--		<td><font size="3"><b>8.</b></font></td>-->
-<!--		<td><center><img width="260" src="img/patants/Patent_relay.png" alt="Relay Specific BLE"></center></td>-->
-<!--		<td></td><td></td>-->
-<!--		<td>-->
-<!--			<font size="4">-->
-<!--				<b>一种低功耗蓝牙通信中继方法、装置、设备及存储介质</b><br>Bluetooth Low Energy(BLE) Communication Relay Method, Device, Equipment and Storage Medium [P], -->
-<!--			</font>-->
-<!--			<font size="3">-->
-<!--                            &nbsp;&nbsp; <br>Lei Ji, <b>Yida Chen</b>.-->
-<!--			    &nbsp;&nbsp; <br> -->
-<!--			    &nbsp;&nbsp; <br>[<a href=" " target="_blank"><b>PDF</b></a>] | [<a href="https://charmve.github.io/doc/patents/360未来安全研究院_低功耗蓝牙安全研究_张伟.pdf" target="_blank"><b>Slides</b></a>]-->
-<!--			</font>-->
-<!--		</td>-->
-<!--	</tr>-->
-<!--	<tr>   -->
-<!--		<td><font size="3"><b>7.</b></font></td>-->
-<!--		<td><center><img width="260" src="img/patants/Patent-param.png" alt="Analyzing BLE Communication Parameters"></center></td>-->
-<!--		<td></td><td></td>-->
-<!--		<td>-->
-<!--			<font size="4">-->
-<!--				<b>一种蓝牙通信参数解析方法、装置、设备及存储介质</b><br>Method, Device, Equipment and Storage Medium for Analyzing Bluetooth Communication Parameters [P], -->
-<!--			</font>-->
-<!--			<font size="3">-->
-<!--                            &nbsp;&nbsp; <br><b>Yida Chen</b>, Lei Ji.-->
-<!--			    &nbsp;&nbsp; <br> -->
-<!--			    &nbsp;&nbsp; <br>[<a href=" " target="_blank"><b>PDF</b></a>] | [<a href="https://charmve.github.io/doc/patents/360未来安全研究院_低功耗蓝牙安全研究_张伟.pdf" target="_blank"><b>Slides</b></a>]-->
-<!--			</font>-->
-<!--		</td>-->
-<!--	</tr>-->
-<!--	<tr>   -->
-<!--		<td><font size="3"><b>6.</b></font></td>-->
-<!--		<td><center><img width="260" src="img/patants/Patent-display.png" alt="Light Cube Circuit"></center></td>-->
-<!--		<td></td><td></td>-->
-<!--		<td>-->
-<!--			<font size="4">-->
-<!--				<b>一种显示阵列控制电路、装置及光立方</b><br>Full-color Display Array Control Circuit, Device and Light Cube [P], -->
-<!--			</font>-->
-<!--			<font size="3">-->
-<!--          		    &nbsp;&nbsp; <br><br><b>Yida Chen</b>.-->
-<!--			    &nbsp;&nbsp; <br> -->
-<!--			    &nbsp;&nbsp; <br>[<a href=" " target="_blank"><b>PDF</b></a>] | [<a href="" target="_blank"><b>Slides</b></a>]-->
-<!--			</font>-->
-<!--		</td>-->
-<!--	</tr>-->
-<!--	<tr>   -->
-<!--		<td><font size="3"><b>5.</b></font></td>-->
-<!--		<td><center><img width="260" src="img/patants/Patent-block.png" alt="Block Specific BLE"></center></td>-->
-<!--		<td></td><td></td>-->
-<!--		<td>-->
-<!--			<font size="4">-->
-<!--				<b>一种低功耗蓝牙连接阻断方法、装置、设备及存储介质</b><br>Method, device, equipment and storage medium for blocking Bluetooth Low Energy (BLE) connection [P], -->
-<!--			</font>-->
-<!--			<font size="3">-->
-<!--                            &nbsp;&nbsp; <br>Lei Ji, <b>Yida Chen</b>.-->
-<!--			    &nbsp;&nbsp; <br> -->
-<!--			    &nbsp;&nbsp; <br>[<a href=" " target="_blank"><b>PDF</b></a>] | [<a href="https://charmve.github.io/doc/patents/360未来安全研究院_低功耗蓝牙安全研究_张伟.pdf" target="_blank"><b>Slides</b></a>]-->
-<!--			</font>-->
-<!--		</td>-->
-<!--	</tr>-->
-<!--	<tr>   -->
-<!--		<td><font size="3"><b>4.</b></font></td>-->
-<!--		<td><center><img width="260" src="img/patants/3d-displayer_patent.png" alt="3d-displayer"></center></td>-->
-<!--		<td></td><td></td>-->
-<!--		<td>-->
-<!--			<font size="4">-->
-<!--				<b>动态显示系统、装置及方法</b>-->
-<!--				<br>A 3D Dynamic Displayer System, a Device and a Method [P], -->
-<!--			</font>-->
-<!--			<font size="3">-->
-<!--                            &nbsp;&nbsp; <br><br><b>Yida Chen</b>.-->
-<!--			    &nbsp;&nbsp; <br>CN112530432A, 2021-03-19.-->
-<!--			    &nbsp;&nbsp; <br><br>[<a href=" " target="_blank"><b>PDF</b></a>] | <img src="https://img.icons8.com/material-sharp/24/000000/github.png" alt="GitHub" width="22px"/><a href="https://github.com/Charmve/LightCube" target="_blank">GitHub</a>-->
-<!--			</font>-->
-<!--		</td>-->
-<!--	</tr>-->
-<!--	<tr>   -->
-<!--		<td><font size="3"><b>3.</b></font></td>-->
-<!--		<td><center><img width="260" src="img/patants/Patent_web-cam.jpg" alt="Patent_web-cam"></center></td>-->
-<!--		<td></td><td></td>-->
-<!--		<td>-->
-<!--			<font size="4">-->
-<!--				<b>一种嵌入实时环境信息的网络摄像头</b><br>A Webcam Embedded with Real-time Environment Information [P], -->
-<!--			</font>-->
-<!--			<font size="3">-->
-<!--           		     &nbsp;&nbsp;<br><br>Xiaoying Deng, <strong>Yida Chen</strong>, Xiaofeng Yang, Weifeng Chen.-->
-<!--			     &nbsp;&nbsp;<br>CN209608763U, 2019-11-08.-->
-<!--		             &nbsp;&nbsp;<br><br>[<b><a href="http://epub.cnipa.gov.cn/tdcdesc.action?strWhere=CN209608763U" target="_blank">PDF</a></b>]-->
-<!--			</font>-->
-<!--		</td>-->
-<!--	</tr>-->
-<!--	<tr>   -->
-<!--		<td><font size="3"><b>2.</b></font></td>-->
-<!--		<td><center><img width="260" src="img/patants/Patent_reading-aid.jpg" alt="Patent_reading-aid"></center></td>-->
-<!--		<td></td><td></td>-->
-<!--		<td>-->
-<!--			<font size="4">-->
-<!--				<b>基于树莓派的盲人阅读辅助设备</b><br>A Reading-aid Device for the Bling Based on Raspberry Pi [P], -->
-<!--			</font>-->
-<!--			<font size="3">-->
-<!--          		    &nbsp;&nbsp;<br><br>Xiaofeng Yang, <b>Yida Chen</b>, Xiaoying Deng, Weifeng Chen, et al.-->
-<!--			    &nbsp;&nbsp;<br>CN209281692U, 2019-08-20.-->
-<!--		            &nbsp;&nbsp;<br><br>[<b><a href="http://epub.cnipa.gov.cn/certifdesc.action?strWhere=CN209281692U" target="_blank">PDF</a></b>]-->
-<!--			</font>-->
-<!--		</td>-->
-<!--	</tr>-->
-<!--    <tr>   -->
-<!--		<td><font size="3"><b>1.</b></font></td>-->
-<!--		<td><center><img width="260" src="img/patants/Patent_campus-card.jpg" alt="Patent_campus-card"></center></td>-->
-<!--		<td></td><td></td>-->
-<!--		<td>-->
-<!--			<font size="4">-->
-<!--				<b>一种基于物联网RFID技术的校园一卡通联合商家会员系统</b><br>A System for All-purpose Campus Card United with Business Member Based on IOT and RFID Technology [P], -->
-<!--			</font>-->
-<!--			<font size="3">-->
-<!--         		    &nbsp;&nbsp; <br><br>Zijia Wang, <b>Yida Chen</b>, Xiaofeng Yang, Wei Wang, et al.-->
-<!--			    &nbsp;&nbsp; <br>CN208722234U, 2019-04-09.-->
-<!--			    &nbsp;&nbsp; <br><br>[<b><a href="http://epub.cnipa.gov.cn/tdcdesc.action?strWhere=CN208722234U" target="_blank">PDF</a></b>]-->
-<!--			</font>-->
-<!--		</td>-->
-<!--	</tr>-->
-<!--	</table>-->
-<!--	<br>-->
-<!--		-->
-<!--	<h2>Software Copyrights</h2>-->
-<!--	<hr/>-->
-<!--	<table>-->
-<!--	<tr>	-->
-<!--		<td><font size="3"><b>9.</b> &nbsp Industrial Control System Network Attack Chain Automatic Generation Platform (360 工控网络攻击链路自动生成平台)[CP]. &nbsp; Bo Ye, <b>Yida Chen</b>, Jianqiang Qu. &nbsp 2021SR1816116.</font></td>-->
-<!--	</tr>-->
-<!--	<tr>	-->
-<!--		<td><font size="3"><b>8.</b> &nbsp Industrial Control System Network Topology Drawing Platform (360 工控网络拓扑绘制平台)[CP]. &nbsp; Bo Ye, <b>Yida Chen</b>. &nbsp 2021SR1816115.</font></td>-->
-<!--	</tr>-->
-<!--	<tr>	-->
-<!--		<td><font size="3"><b>7.</b> &nbsp An Interactive AI System Software Featuring Dynamic Facial Expression Recognition and Voice Chatting [CP]. &nbsp; <b>Yida Chen</b>, Xiaoying Deng, Wanting Liu. &nbsp 2019R11S0455591.</font></td>-->
-<!--	</tr>-->
-<!--	<tr>	 -->
-<!--		<td><font size="3"><b>6.</b> &nbsp A System Software Used in a Bluetooth-controlled Car for Authentication Based on Dynamic Facial Recognition [CP]. &nbsp; <b>Yida Chen</b>, Fuzhou Shen, Xiaoying Deng, Lei CHEN. &nbsp 2019R11S0455589.</font></td>-->
-<!--	</tr>-->
-<!--	<tr>-->
-<!--		<td><font size="3"><b>5.</b> &nbsp An Eco-regulation System Based on Internet and Real-time Monitoring [CP]. &nbsp; Saibo Fan, Jiqiao Sun, Fuzhou Shen, <b>Yida Chen</b>, Lei Chen. &nbsp 2019SR0619769.</font></td>-->
-<!--	</tr>-->
-<!--	<tr>	-->
-<!--		<td><font size="3"><b>4.</b> &nbsp A Smart Car System with Tracing and Photography Functions [CP]. &nbsp; Fuzhou Shen, <b>Yida Chen</b>, Saibo Fan, Lei Chen. &nbsp 2019SR0676736.</font></td>-->
-<!--	</tr>-->
-<!--	<tr>	-->
-<!--		<td><font size="3"><b>3.</b> &nbsp A 3D Dynamic Display System Based on Intelligent Voice [CP]. &nbsp; <b>Yida Chen</b>, Fuzhou Shen, Ce Sun, Xiaoying Deng, Lei Chen. &nbsp 2019SR0223080.</font></td> -->
-<!--	</tr>-->
-<!--	<tr>	-->
-<!--		<td><font size="3"><b>2.</b> &nbsp A Robot Control System Server Based on WebServer Technology [CP]. &nbsp; <b>Yida Chen</b>, Xiaofeng Yang, Xiaoying Deng. &nbsp 2018SR879516.</font></td>-->
-<!--	</tr>-->
-<!--	<tr>	-->
-<!--		<td><font size="3"><b>1.</b> &nbsp An Intelligent Rainbow Light System Software Based on Wi-Fi Module [CP]. &nbsp; Shaowei Qian, Xuelian Ge, <b>Yida Chen</b>, Xiaoming Yan, Lei Chen. &nbsp 2018SR773134.</font></td>	-->
-<!--	</tr>-->
-<!--	</table>-->
-<!--	<br>-->
-<!--	-->
-<!--	<h2>Funding</h2>-->
-<!--	<hr/>-->
-<!--	<table>-->
-<!--	<tr>	-->
-<!--		<td><br><b>1.</b>&nbsp; <font size="4">Provincial College Students’ Innovative Entrepreneurial Training Program, 2019.5–2020.5</font></td>-->
-<!--	</tr>-->
-<!--	<tr>-->
-<!--		<td>-->
-<!--			<p> &nbsp;&nbsp; <font size="3">- Maiwei Information Technology Co., Ltd., <i>No. 201911117138T</i>, <b>Principal Investigator</b></font></p>-->
-<!--		</td>-->
-<!--	</tr>-->
-<!--	<tr>	-->
-<!--		<td><b>2.</b> &nbsp; <font size="4">School-level College Students' Innovative Entrepreneurial Training, 2018.5–2019.5</font> </td>-->
-<!--	</tr>-->
-<!--	<tr>-->
-<!--		 <td>-->
-<!--			<p>&nbsp;&nbsp; <font size="3">- A Design of Indoor Self-navigating Meal Delivery Robot Based on Facial Recognition, <i>No. x20180186</i>, <b>Principal Investigator</b> </font><br>-->
-<!--			<div style="line-height:10px"></div>&nbsp;&nbsp; <font size="3">- E-reading Aids for Visually Impaired People Based on Optical Character Recognition(OCR) and Text to Speech(TTS) Techniques, <i>No. x20180186</i>, Participator</font></p>-->
-<!--            -->
-<!--		 </td>-->
-<!--	</tr>-->
-<!--	</table>-->
-<!--	<br>-->
-
-<!--	<h2>Awards & Honors</h2>-->
-<!--	<hr/>-->
-<!--	<table>-->
-<!--	<tr>-->
-<!--		<td>-->
-<!--		<p>-->
-<!--			<font size="4"><span class="label">&#10148;</span> 05/2019 - </font><font size="3"><strong>2nd Prize</strong>, The 2nd National University Contest on Intelligent Robotic Innovations. <a href="https://github.com/Charmve/EmotionCube" target="_blank"><i>Emotion Cube: A Voice Robot Based on Emotion Analysis</i></a>. <b>Yida Chen</b>, Hongxia YU, Jieling JIANG. Advisor：Lei CHEN, Xiaoying DENG.</font><br>-->
-<!--			<br><font size="4"><span class="label">&#10148;</span> 11/2018 - </font><font size="3"><strong>2nd Prize</strong>, 2018 National College Students’ FPGA Innovation Design Competition. <a href="https://github.com/Charmve/LightCube" target="_blank"><i>Light Cube: A 3D Display System with Intelligent Voice Based on FPGA</i></a>. Fuzhou Shen, <b>Yida Chen</b>, Ce Sun. Advisor：Lei CHEN, Weifeng CHEN.</font><br>-->
-<!--            <br><font size="4"><span class="label">&#10148;</span> 04/2019 - </font><font size="3">National 3rd Prize, <strong>1st Prize in East China</strong>, 'Discovery Cup' Software Design Competition of National College Students’ 'Internet Plus' Innovation Contest. <a href="https://www.youtube.com/watch?v=Xc_AfRVF1nw" target="_blank"><i>Maiwei Information Technology Co., Ltd.</i></a> <i>No. 201911117138T</i>, <b>Principal Investigator</b>.</font><br>  -->
-<!--            <br><font size="4"><span class="label">&#10148;</span> 10/2019 - </font><font size="3"><strong>2nd Prize</strong> East China Region, National College Student Embedded Chip and System Design Competition and Smart Interconnect Innovation Competition. <a href="https://github.com/Charmve/Design-of-a-3D-Dynamic-Display-System-Based-on-Voice-Control" target="_blank"><i>Design of a 3D Dynamic Display System Based on Voice Control</i></a>. <b>Yida Chen</b>, Fuzhou Shen, Zhichao Fan. Advisor：Lei CHEN, Xiaoying DENG.</font><br>-->
-<!--			<br><font size="4"><span class="label">&#10148;</span> 10/2018 - </font><font size="3"><strong>1st Prize</strong>, Peeli Campus Venture Competition in Jiangsu Province. <a href="https://www.youtube.com/watch?v=Xc_AfRVF1nw" target="_blank"><i>Maiwei Information Technology Co., Ltd.</i></a> <b>Yida Chen</b>, Siyi Yao, Yuzhu ZHANG, Hongyu Li. <i>No. 201911117138T</i>, <b>Principal Investigator</b>.</font><br>-->
-<!--            <br><font size="4"><span class="label">&#10148;</span> 08/2019 - </font><font size="3">Provincial <strong>2nd Prize</strong> of National Electronic Design Competition. Fuzhou Shen, <b>Yida Chen</b>, Zhichao Fan. Advisor：Lei CHEN, Weifeng CHEN. <a href="https://github.com/Charmve/Practicum" target="_blank"><i>More Practicum</i></a>. </font><br> -->
-<!--            <br><font size="4"><span class="label">&#10148;</span> 10/2018 - </font><font size="3">Honorary title of <a href="http://www.people.com.cn/n1/2018/1116/c347407-30405565-3.html" target="_blank">“<strong>New Youth for a Powerful Nation</strong>”</a> of National Summer Voluntary Teaching (selected among 300 people nationwide by <i>the Department of Schools of Central Committee of the Communist Youth League of China</i>, <i>China Youth Daily</i> and <i>people.cn</i>).</font><br>-->
-<!--            <br><font size="4"><span class="label">&#10148;</span> 05/2019 - </font><font size="3">Won the honorary title of <a href="http://www.zggyw.org/gonggao/content-15-5175-1.html" target="_blank">“<strong>Top100 Volunteer</strong>”</a> & <a href="http://www.zggyw.org/gonggao/content-15-5473-1.html" target="_blank"><strong>"College Student Charity Star"</strong></a> initiated by <i>www.zggyw.org</i>, and got <strong>full membership</strong> of <i>International Association of Volunteers (Hong Kong)</i> Youth Action Committee.</font><br>-->
-<!--            <br><font size="4"><span class="label">&#10148;</span> 11/2018 - </font><font size="3"><strong>National Encouragement Scholarship</strong>(5%) 3 consecutive years, <strong>Fei Xiaotong Scholarship of Morality Cultivation</strong> (1/794).</font><br>-->
-<!--            <br><font size="4"><span class="label">&#10148;</span> 08/2019 - </font><font size="3"><strong>1st Prize</strong>, The 5th China College Students' 'Internet Plus' Innovation and Entreprenurship Competition. <a href="https://www.youtube.com/watch?v=Xc_AfRVF1nw" target="_blank"><i>Maiwei Information Technology Co., Ltd.</i> </a><b>Yida Chen</b>, Hongxia Yu, Zhichao Fan, Shumin Li. <i>No. 201911117138T</i>, <b>Principal Investigator</b>.</font>-->
-<!--		</p>-->
-<!--		</td>-->
-<!--	</tr>-->
-<!--	</table>-->
-<!--	<br>-->
-<!--	-->
-<!--	<h2> </h2>-->
-<!--	<hr/> -->
-<!--	<div align="center">-->
-<!--		<a href="https://charmve.github.io/img/awards.jpg"><img width="45%" src="img/awards.jpg" alt="3d-displayer"></a> &nbsp;&nbsp;&nbsp;&nbsp;-->
-<!--		<a href="https://charmve.github.io/img/selected_work.jpg"><img width="45%" src="img/selected_work.jpg" alt="3d-displayer"></a>-->
-<!--	</div>-->
-<!--	<br>-->
-
-<!--	<h2>Social Activities</h2>-->
-<!--	<hr/> -->
-<!--	<table>-->
-<!--	<tr>-->
-<!--		<td><font size="4"><span class="label">&#10148;</span> 08/2020-now  <b>Technical Blog Analyst</b>, Global Affairs, Synced Technology </font></td>-->
-<!--	</tr>-->
-<!--	<tr>-->
-<!--		<td><font size="4"><span class="label">&#10148;</span> 07/2020-now  <b>Vice-advisor</b>, Ant Academic Study Center </font></td>-->
-<!--	</tr>-->
-<!--	<tr>-->
-<!--		<td><font size="4"><span class="label">&#10148;</span> Volunteer Experiences (<b>OVER 250</b> hours of volunteer services)</font></td>-->
-<!--	</tr>-->
-<!--	<tr>-->
-<!--		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="3.5"> 02/2020 - </font> Excellent work in respect of the volunteer program of <a href="https://unfccc.int/news/youth-urge-climate-action-at-cop25" target="_blank"><b>COP25 - Youth4Climate</b></a> to United Nations Framework Convention on Climate Change, <b>Assistant</b> to the Greater China Secretariat, <b>Excellent Group</b> </font></td>-->
-<!--	</tr>-->
-<!--	<tr>	-->
-<!--		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="3.5"> 04/2019 - </font> Yangzhou Jianzhen International Half Marathon, <b>Outstanding Volunteer</b> </font></td>-->
-<!--	</tr>-->
-<!--	<tr>	-->
-<!--		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="3.5"> 03/2019 - </font> Responsible for the recruitment of volunteers in mainland China for The 2019 World Summer Special Olympic Games, <b>Group Leader</b> </font></td>-->
-<!--	</tr>-->
-<!--	<tr>	-->
-<!--		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="3.5"> 08/2018 - </font> Volunteering for The 19th Sports Games of Jiangsu, as an assistant referees of the youth team of basketball games </font></td>-->
-<!--	</tr>-->
-<!--	<tr>	-->
-<!--		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="3.5"> 07/2018 - </font> International Volunter Job in <a href="https://aiesec.org" target="_blank"><b>AIESEC</b></a> in NJU, Mainland of China's Incoming Global Volunteer program <i>Explore China7.0</i> </font></td>-->
-<!--	</tr>-->
-<!--	</table>-->
-	<br>
-
-	<br>
-	<h2>Website visit statistics</h2>
-	<hr/>
-	<script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=300&t=tt&d=v_xn_Dhrnu0fDyl460FCo-ANZ3JwLvVDZ_9pBKJtrwg&co=2d78ad&cmo=3acc3a&cmn=ff5353&ct=ffffff'></script>
-
-    <div id="copyright" align="right">
-        <p>Copyright&copy; 2024 Yida Chen.</p>
+  <header id="home">
+    <div class="profile-container">
+      <div class="profile-image">
+        <img src="static/photo.jpg" alt="陈怡达个人照片" width="180" height="180" fetchpriority="high">
+      </div>
+      <div class="profile-info">
+        <h1>陈怡达<span>Yida Chen</span></h1>
+        <p>昆明理工大学 · 信息工程与自动化学院 · 博士研究生</p>
+        <p>多模态信息融合 · 图像配准 · 图像恢复</p>
+        <p>中共党员 · 重庆万州</p>
+        <div class="contact-info">
+          <a href="mailto:yida_myth@stu.kust.edu.cn" aria-label="发送邮件给陈怡达">📧 yida_myth@stu.kust.edu.cn</a>
+          <span>📱 153xxxx8888</span>
+        </div>
+      </div>
     </div>
+  </header>
+
+  <main id="main-content" tabindex="-1">
+    <section id="education">
+      <h2>教育经历</h2>
+
+      <div class="education-item fade-in">
+        <div class="education-header">
+          <div class="education-title">昆明理工大学 - 信息工程与自动化学院（博士）</div>
+          <div class="education-period">2023.09 - 2027.06</div>
+        </div>
+        <div class="education-details">
+          <div class="detail-item">
+            <span class="detail-label">研究方向：</span>
+            <span>多模态信息融合</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">导师：</span>
+            <span>李华锋</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">学院：</span>
+            <span>信息工程与自动化学院</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">学历层次：</span>
+            <span>博士研究生</span>
+          </div>
+        </div>
+        <div style="margin-top: 1rem;">
+          <strong>课程成绩：</strong>
+          <ul style="margin-top: 0.5rem;">
+            <li>2023-2024：课程成绩排名第一（1/14），平均分92.48分（唯一均分超过90分的学生）</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="education-item fade-in">
+        <div class="education-header">
+          <div class="education-title">重庆师范大学 - 计算机应用技术（学硕）</div>
+          <div class="education-period">2020.09 - 2023.06</div>
+        </div>
+        <div class="education-details">
+          <div class="detail-item">
+            <span class="detail-label">研究方向：</span>
+            <span>图像处理、机器视觉</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">导师：</span>
+            <span>曾绍华</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">学院：</span>
+            <span>计算机与信息科学学院</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">研究中心：</span>
+            <span>重庆市数字农业服务工程技术研究中心</span>
+          </div>
+        </div>
+        <div style="margin-top: 1rem;">
+          <strong>学业成绩：</strong>
+          <ul style="margin-top: 0.5rem;">
+            <li>2020-2021：课程成绩 88.67，排名 5/49，获重庆师范大学研究生学业奖学金二等奖</li>
+            <li>2021-2022：课程成绩 91.75，排名 1/49，获重庆师范大学研究生学业奖学金一等奖</li>
+            <li>2022-2023：课程成绩 96，排名 1/49，获重庆师范大学研究生学业奖学金一等奖</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="education-item fade-in">
+        <div class="education-header">
+          <div class="education-title">云南大学滇池学院 - 软件工程（本科）</div>
+          <div class="education-period">2016.09 - 2020.06</div>
+        </div>
+        <div class="education-details">
+          <div class="detail-item">
+            <span class="detail-label">专业排名：</span>
+            <span>前10%</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">GPA：</span>
+            <span>82.5/100</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">英语四级：</span>
+            <span>451分</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">毕业设计：</span>
+            <span style="word-break: break-all;">《基于聚类算法的图像识别研究》</span>
+          </div>
+        </div>
+        <p style="margin-top: 1rem;"><strong>考研成绩：</strong>总分361分（英语一：54，政治：68，高等数学II：103，C程序设计与数据结构：136）</p>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>技能专长</h2>
+      <div class="skills-container">
+        <div class="skill-category">
+          <h3>编程语言</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">C/C++</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">MATLAB</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>深度学习框架</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">PyTorch</span>
+            <span class="skill-tag">TensorFlow</span>
+            <span class="skill-tag">Keras</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>计算机视觉</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">OpenCV</span>
+            <span class="skill-tag">图像处理</span>
+            <span class="skill-tag">图像配准</span>
+            <span class="skill-tag">图像融合</span>
+            <span class="skill-tag">特征提取</span>
+            <span class="skill-tag">目标检测</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>机器学习算法</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">K-means</span>
+            <span class="skill-tag">KNN</span>
+            <span class="skill-tag">BP神经网络</span>
+            <span class="skill-tag">SVM</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>注意力机制</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">SE</span>
+            <span class="skill-tag">CBAM</span>
+            <span class="skill-tag">Self-Attention</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>深度学习模型</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">ResNet</span>
+            <span class="skill-tag">DenseNet</span>
+            <span class="skill-tag">Faster R-CNN</span>
+            <span class="skill-tag">Mask R-CNN</span>
+            <span class="skill-tag">U-Net</span>
+            <span class="skill-tag">ViT</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>开发工具</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Anaconda</span>
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">PySide2</span>
+            <span class="skill-tag">Markdown</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>操作系统</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Linux</span>
+            <span class="skill-tag">macOS</span>
+            <span class="skill-tag">Windows</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="awards">
+      <h2>获奖情况</h2>
+      <div class="awards-grid">
+        <div class="award-item">
+          <div class="award-title">🏆 机器人综合技能项目三等奖</div>
+          <div class="award-details">2021.05 · 重庆师范大学第四届科技运动会 · 第一名 (1/3)</div>
+        </div>
+        <div class="award-item">
+          <div class="award-title">🥈 数学建模校内选拔赛二等奖</div>
+          <div class="award-details">2021.09 · 重庆师范大学2021年研究生 · 第一名 (1/3)</div>
+        </div>
+        <div class="award-item">
+          <div class="award-title">🥉 中国研究生电子设计竞赛三等奖</div>
+          <div class="award-details">2021.07 · "兆易创新杯"第十六届 · 西南分赛区团队 · 第二名 (2/3)</div>
+        </div>
+        <div class="award-item">
+          <div class="award-title">🥈 重庆市科慧研究生创新创业大赛二等奖</div>
+          <div class="award-details">2021.12 · "明月湖科创板"第十届 · 科技创新组 · 第二名 (2/6)</div>
+        </div>
+        <div class="award-item">
+          <div class="award-title">🥈 中国机器人及人工智能大赛二等奖</div>
+          <div class="award-details">2021.12 · 第二十三届全国总决赛 · 人工智能创新赛 · 第二名 (2/4)</div>
+        </div>
+        <div class="award-item">
+          <div class="award-title">🥈 中国研究生电子设计竞赛二等奖</div>
+          <div class="award-details">2022.07 · "兆易创新杯"第十七届 · 西南分赛区团队 · 第一名 (1/3)</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="research">
+      <h2>研究成果</h2>
+
+      <h3>📝 学术论文</h3>
+      <div class="research-grid publication-grid">
+        <article class="research-item featured-publication">
+          <div class="research-header">
+            <span class="publication-badge">最新论文 · 2026</span>
+            <div class="research-title">Joint multi-view embedding with progressive multi-scale alignment for unaligned infrared-visible image fusion</div>
+            <div class="research-meta">第一作者 · Information Fusion · Volume 128 · Article 103960</div>
+          </div>
+          <div class="research-content">
+            <p class="publication-authors"><strong>Yida Chen</strong>, Yafei Zhang, Huafeng Li, Zhengtao Yu, Yu Liu</p>
+            <p class="publication-venue"><cite>Information Fusion</cite>, Volume 128, 2026, 103960.</p>
+            <div class="publication-links">
+              <a class="publication-link" href="https://doi.org/10.1016/j.inffus.2025.103960" target="_blank" rel="noopener noreferrer">DOI / 论文页面</a>
+              <a class="publication-link" href="https://github.com/yidamyth/ME-PMA" target="_blank" rel="noopener noreferrer">项目代码</a>
+            </div>
+          </div>
+        </article>
+        <article class="research-item">
+          <div class="research-header">
+            <div class="research-title">Soil Image Segmentation Based on Mask R-CNN</div>
+            <div class="research-meta">2023年1月 · 第一作者 · 已见刊检索</div>
+          </div>
+          <div class="research-content">
+            <p>发表于：2023 第三届 IEEE 消费电子与计算机工程国际学术会议（IEEE-ICCECE 2022 中国·广州）</p>
+          </div>
+        </article>
+        <article class="research-item">
+          <div class="research-header">
+            <div class="research-title">基于子图选择的土种识别</div>
+            <div class="research-meta">2023年2月 · 第一作者 · 已录用，待见刊</div>
+          </div>
+          <div class="research-content">
+            <p>期刊：重庆师范大学学报-自然科学版（北大核心）</p>
+          </div>
+        </article>
+      </div>
+
+      <h3>💡 软件著作权</h3>
+      <div class="research-grid">
+        <div class="research-item">
+          <div class="research-header">
+            <div class="research-title">基于半监督离散度的土壤彩色图像阴影检测算法的Python API软件</div>
+            <div class="research-meta">2021年1月申请 · 登记号：2021SR0041322</div>
+          </div>
+          <div class="research-content">
+            <p>著作权人：重庆师范大学<br>申请人员：曾绍华（导师）、陈怡达</p>
+          </div>
+        </div>
+        <div class="research-item">
+          <div class="research-header">
+            <div class="research-title">基于子图选择算法土种识别的Python API软件</div>
+            <div class="research-meta">2022年12月申请 · 登记号：2023SR0349669</div>
+          </div>
+          <div class="research-content">
+            <p>著作权人：重庆师范大学<br>申请人员：曾绍华（导师）、陈怡达</p>
+          </div>
+        </div>
+      </div>
+
+      <h3>🔬 专利申请</h3>
+      <div class="research-grid">
+        <div class="research-item">
+          <div class="research-header">
+            <div class="research-title">识别机器人</div>
+            <div class="research-meta">外观专利 · 2022年4月申请</div>
+          </div>
+          <div class="research-content">
+            <p>发明人：陈怡达<br>申请号：202230214102.9（已受理，待审查）</p>
+          </div>
+        </div>
+        <div class="research-item">
+          <div class="research-header">
+            <div class="research-title">自适应选择土壤识别子图的方法</div>
+            <div class="research-meta">发明专利 · 2023年2月申请</div>
+          </div>
+          <div class="research-content">
+            <p>发明人：曾绍华（导师）、陈怡达<br>申请号：202310129860.4（已受理，并公开进入实质性审查）</p>
+          </div>
+        </div>
+      </div>
+
+      <h3>🔬 研究项目</h3>
+      <div class="research-grid">
+        <div class="research-item">
+          <div class="research-header">
+            <div class="research-title">基于机器视觉的土种识别技术在智慧农业中的应用</div>
+            <div class="research-meta">校级项目 · 2022.06-2023.06 · 已结题</div>
+          </div>
+          <div class="research-content">
+            <p>项目编号：YKC22016<br>资助金额：4千元<br>项目排名：1/5</p>
+          </div>
+        </div>
+        <div class="research-item">
+          <div class="research-header">
+            <div class="research-title">基于机器视觉的自然环境下早期花椒花序计数及应用</div>
+            <div class="research-meta">校级项目 · 2021.06-2023.06 · 已结题</div>
+          </div>
+          <div class="research-content">
+            <p>项目编号：YKC21060<br>资助金额：4千元<br>项目排名：3/5</p>
+          </div>
+        </div>
+        <div class="research-item">
+          <div class="research-header">
+            <div class="research-title">视觉图像亮度可控的非线性迁移算法及应用研究</div>
+            <div class="research-meta">市级项目 · 2022.06-2023.06 · 已结题</div>
+          </div>
+          <div class="research-content">
+            <p>项目编号：CYS22564<br>资助金额：5千元<br>项目排名：5/5</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="blog">
+      <h2>技术博客</h2>
+      <div class="blog-stats">
+        <div class="stat-item">
+          <span class="stat-number">80+</span>
+          <span class="stat-label">技术文章</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">60万+</span>
+          <span class="stat-label">阅读量</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">10+</span>
+          <span class="stat-label">专题系列</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">1000+</span>
+          <span class="stat-label">点赞收藏</span>
+        </div>
+      </div>
+      <p style="text-align: center; color: #666; margin-top: 2rem;">
+        主要分享计算机视觉、深度学习、多模态信息融合等技术内容，欢迎交流学习！
+      </p>
+      <p style="text-align: center; color: #666; margin-top: 0.5rem;">
+        <a href="https://yidamyth.blog.csdn.net/" target="_blank" rel="noopener noreferrer" style="color:#666; text-decoration:none;">
+          个人技术博客：yidamyth.blog.csdn.net
+        </a>
+      </p>
+    </section>
+
+    <section id="contact">
+      <h2>联系方式</h2>
+      <div class="download-section">
+        <h3 style="margin-bottom: 2rem; color: #2c3e50;">获取简历</h3>
+        <p style="margin-bottom: 2rem; color: #666;">如需了解更多详细信息，请下载完整简历</p>
+        <div class="download-actions">
+          <a href="static/陈怡达-重庆师范大学-个人简历.pdf" class="download-btn" target="_blank" rel="noopener">📄 下载 PDF 简历</a>
+          <a href="mailto:yida_myth@stu.kust.edu.cn" class="download-btn">📧 发送邮件</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="#home">首页</a>
+        <a href="#education">教育经历</a>
+        <a href="#skills">技能专长</a>
+        <a href="#research">研究成果</a>
+        <a href="#contact">联系方式</a>
+      </div>
+      <div class="copyright">
+        <p>&copy; <span id="copyright-year">2026</span> 陈怡达个人主页. All rights reserved.</p>
+        <div class="beian-info">
+          <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">滇ICP备2024024637号-1</a>
+          <a href="https://beian.mps.gov.cn/#/query/webSearch?code=53011402000736" target="_blank" rel="noopener noreferrer">滇公网安备53011402000736号</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // 平滑滚动
+    document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+          history.replaceState(null, '', this.getAttribute('href'));
+        }
+      });
+    });
+
+    // 导航栏活动状态
+    const updateActiveNavigation = () => {
+      const sections = document.querySelectorAll('header[id], main section[id]');
+      const navLinks = document.querySelectorAll('nav a');
+
+      let current = 'home';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (window.scrollY >= sectionTop - 160) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        link.removeAttribute('aria-current');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+          link.setAttribute('aria-current', 'page');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', updateActiveNavigation, { passive: true });
+    updateActiveNavigation();
+
+    // 滚动动画
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.education-item, .skill-category, .award-item, .research-item').forEach(el => {
+        observer.observe(el);
+      });
+    }
+
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
