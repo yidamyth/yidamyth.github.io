@@ -399,16 +399,20 @@
       grid-column: span 3;
     }
 
-    .education-master .education-details > .detail-item:nth-child(3),
-    .education-master .education-details > .detail-item:nth-child(5) {
+    .education-master .education-details > .detail-item:nth-child(3) {
       display: grid;
       grid-template-columns: max-content minmax(0, 1fr);
       align-items: baseline;
     }
 
-    .education-master .education-details > .detail-item:nth-child(3) span:last-child,
-    .education-master .education-details > .detail-item:nth-child(5) span:last-child {
+    .education-master .education-details > .detail-item:nth-child(3) span:last-child {
       text-align: right;
+    }
+
+    .education-master .education-details > .detail-item:nth-child(5) {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.35rem;
     }
 
     .education-detail-long {
@@ -1185,9 +1189,12 @@
         grid-column: 1 / -1;
       }
 
-      .education-master .education-details > .detail-item:nth-child(3) span:last-child,
-      .education-master .education-details > .detail-item:nth-child(5) span:last-child {
+      .education-master .education-details > .detail-item:nth-child(3) span:last-child {
         text-align: left;
+      }
+
+      .education-master .education-details > .detail-item:nth-child(5) {
+        justify-content: flex-start;
       }
 
       .education-detail-long {
