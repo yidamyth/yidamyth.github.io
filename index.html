@@ -386,16 +386,30 @@
       overflow-wrap: anywhere;
     }
 
-    .education-master .education-details > .detail-item:nth-child(3) {
-      grid-column: 1 / -1;
+    .education-master .education-details {
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      column-gap: 1.75rem;
+    }
+
+    .education-master .education-details > .detail-item:nth-child(-n+3) {
+      grid-column: span 2;
+    }
+
+    .education-master .education-details > .detail-item:nth-child(n+4) {
+      grid-column: span 3;
     }
 
     .education-detail-long {
-      flex-wrap: nowrap;
+      display: grid;
+      grid-template-columns: max-content minmax(0, 1fr);
+      gap: 0.55rem;
+      align-items: start;
     }
 
     .education-detail-long span:last-child {
-      white-space: nowrap;
+      min-width: 0;
+      white-space: normal;
+      overflow-wrap: anywhere;
     }
 
     .graduation-design {
@@ -1144,10 +1158,19 @@
         grid-template-columns: 1fr;
       }
 
+      .education-master .education-details {
+        grid-template-columns: 1fr;
+        column-gap: 0.65rem;
+      }
+
+      .education-master .education-details > .detail-item {
+        grid-column: 1 / -1;
+      }
+
       .education-detail-long {
-        gap: 0.2rem;
-        font-size: clamp(0.63rem, 2.9vw, 1rem);
-        line-height: 1.4;
+        gap: 0.45rem;
+        font-size: 0.88rem;
+        line-height: 1.5;
       }
 
       .education-detail-long .detail-label {
