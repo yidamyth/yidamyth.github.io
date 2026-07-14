@@ -385,12 +385,15 @@
       overflow-wrap: anywhere;
     }
 
-    .detail-item-wide {
+    .education-master .education-details > .detail-item:nth-child(3) {
       grid-column: 1 / -1;
+    }
+
+    .education-detail-long {
       flex-wrap: nowrap;
     }
 
-    .detail-item-wide span:last-child {
+    .education-detail-long span:last-child {
       white-space: nowrap;
     }
 
@@ -1036,12 +1039,13 @@
         grid-template-columns: 1fr;
       }
 
-      .detail-item-wide {
-        gap: 0.25rem;
-        font-size: clamp(0.75rem, 3.45vw, 1rem);
+      .education-detail-long {
+        gap: 0.2rem;
+        font-size: clamp(0.63rem, 2.9vw, 1rem);
+        line-height: 1.4;
       }
 
-      .detail-item-wide .detail-label {
+      .education-detail-long .detail-label {
         min-width: auto;
       }
 
@@ -1279,9 +1283,13 @@
             <span class="detail-label">学院：</span>
             <span>计算机与信息科学学院</span>
           </div>
-          <div class="detail-item detail-item-wide">
+          <div class="detail-item education-detail-long">
             <span class="detail-label">研究中心：</span>
             <span>重庆市数字农业服务工程技术研究中心</span>
+          </div>
+          <div class="detail-item education-detail-long">
+            <span class="detail-label">毕业论文：</span>
+            <span>基于子图选择的野外土壤图像土种识别</span>
           </div>
         </div>
         <div class="education-results">
@@ -1422,7 +1430,7 @@
         <article class="research-item">
           <div class="research-header">
             <div class="research-title">基于子图选择的土种识别</div>
-            <div class="research-meta">2023年2月 · 第一作者 · 已录用，待见刊</div>
+            <div class="research-meta">2023年2月 · 第一作者 · 已录用见刊</div>
           </div>
           <div class="research-content">
             <p>期刊：重庆师范大学学报-自然科学版（北大核心）</p>
@@ -1599,7 +1607,7 @@
           </div>
           <figure class="personal-wechat">
             <h3>个人微信</h3>
-            <a href="static/个人微信.JPG" target="_blank" rel="noopener" aria-label="查看陈怡达个人微信二维码大图">
+            <a href="#contact" aria-label="跳转到联系方式模块">
               <img src="static/个人微信.JPG" alt="陈怡达个人微信二维码" width="888" height="1191" loading="lazy" decoding="async">
             </a>
             <figcaption>扫描二维码添加微信</figcaption>
