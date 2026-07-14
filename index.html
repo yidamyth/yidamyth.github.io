@@ -282,15 +282,31 @@
 
     /* 教育经历 */
     .education-item {
+      --education-accent: var(--primary-600);
       background: linear-gradient(145deg, #ffffff 0%, var(--surface-soft) 100%);
       padding: 1.85rem 2rem 2rem;
       margin: 1.5rem 0;
       border-radius: 15px;
       border: 1px solid var(--border);
-      border-left: 4px solid var(--primary-600);
+      border-left: 4px solid var(--education-accent);
       box-shadow: var(--shadow-sm);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       overflow: hidden;
+    }
+
+    .education-phd {
+      --education-accent: #2b6cb0;
+      background: linear-gradient(145deg, #e8f3fb 0%, #f5faff 58%, #ffffff 100%);
+    }
+
+    .education-master {
+      --education-accent: #4a9bd0;
+      background: linear-gradient(145deg, #f0f7fc 0%, #f9fcfe 60%, #ffffff 100%);
+    }
+
+    .education-undergraduate {
+      --education-accent: #8abbdc;
+      background: linear-gradient(145deg, #f7fafc 0%, #fbfdfe 62%, #ffffff 100%);
     }
 
     .education-item:hover {
@@ -326,7 +342,7 @@
       height: 10px;
       flex: 0 0 auto;
       border-radius: 50%;
-      background: var(--primary-600);
+      background: var(--education-accent);
       box-shadow: 0 0 0 5px var(--primary-100);
     }
 
@@ -376,6 +392,16 @@
 
     .detail-item-wide span:last-child {
       white-space: nowrap;
+    }
+
+    .graduation-design {
+      grid-column: 1 / -1;
+      flex-wrap: nowrap;
+    }
+
+    .graduation-design span:last-child {
+      white-space: nowrap;
+      word-break: normal;
     }
 
     .detail-label {
@@ -909,6 +935,16 @@
         gap: 0.65rem;
       }
 
+      .graduation-design {
+        gap: 0.2rem;
+        font-size: clamp(0.63rem, 2.9vw, 1rem);
+        line-height: 1.4;
+      }
+
+      .graduation-design .detail-label {
+        min-width: auto;
+      }
+
       .skill-tags {
         gap: 0.5rem;
       }
@@ -1008,7 +1044,7 @@
     <section id="education">
       <h2>教育经历</h2>
 
-      <div class="education-item fade-in">
+      <div class="education-item education-phd fade-in">
         <div class="education-header">
           <div class="education-title">昆明理工大学 - 信息工程与自动化学院（博士）</div>
           <div class="education-period">2023.09 - 2027.06</div>
@@ -1039,9 +1075,9 @@
         </div>
       </div>
 
-      <div class="education-item fade-in">
+      <div class="education-item education-master fade-in">
         <div class="education-header">
-          <div class="education-title">重庆师范大学 - 计算机应用技术（学硕）</div>
+          <div class="education-title">重庆师范大学 - 计算机应用技术（硕士）</div>
           <div class="education-period">2020.09 - 2023.06</div>
         </div>
         <div class="education-details">
@@ -1072,7 +1108,7 @@
         </div>
       </div>
 
-      <div class="education-item fade-in">
+      <div class="education-item education-undergraduate fade-in">
         <div class="education-header">
           <div class="education-title">云南大学滇池学院 - 软件工程（本科）</div>
           <div class="education-period">2016.09 - 2020.06</div>
@@ -1090,9 +1126,9 @@
             <span class="detail-label">英语四级：</span>
             <span>451分</span>
           </div>
-          <div class="detail-item">
+          <div class="detail-item graduation-design">
             <span class="detail-label">毕业设计：</span>
-            <span style="word-break: break-all;">《基于聚类算法的图像识别研究》</span>
+            <span>《基于聚类算法的图像识别研究》</span>
           </div>
         </div>
         <p class="education-results education-result-line"><strong>考研成绩：</strong><span>总分361分（英语一：54，政治：68，高等数学II：103，C程序设计与数据结构：136）</span></p>
