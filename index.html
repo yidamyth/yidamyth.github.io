@@ -206,6 +206,8 @@
       border-radius: 22px;
       position: relative;
       z-index: 10;
+      display: flex;
+      flex-direction: column;
     }
 
     section {
@@ -213,7 +215,15 @@
       scroll-margin-top: 78px;
     }
 
-    section:last-child {
+    #education { order: 1; }
+    #research { order: 2; }
+    #awards { order: 3; }
+    #blog { order: 4; }
+    #wechat { order: 5; }
+    #skills { order: 6; }
+    #contact { order: 7; }
+
+    #contact {
       margin-bottom: 0;
     }
 
@@ -325,7 +335,7 @@
 
     .skill-category {
       background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-      padding: 2rem;
+      padding: 1.5rem;
       border-radius: 15px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.08);
     }
@@ -729,21 +739,6 @@
       line-height: 1.5;
     }
 
-    .beian-info {
-      margin-top: 0.5rem;
-    }
-
-    .beian-info a {
-      color: #95a5a6;
-      text-decoration: none;
-      margin: 0 0.5rem;
-      transition: color 0.3s ease;
-    }
-
-    .beian-info a:hover {
-      color: #3498db;
-    }
-
     /* 响应式设计 */
     @media (max-width: 768px) {
       nav ul {
@@ -835,15 +830,6 @@
         font-size: 0.9rem;
       }
 
-      .beian-info {
-        display: flex;
-        flex-direction: column;
-        gap: 0.3rem;
-      }
-
-      .beian-info a {
-        margin: 0;
-      }
     }
 
     /* 滚动动画 */
@@ -882,12 +868,12 @@
     <ul>
       <li><a href="#home" class="active">首页</a></li>
       <li><a href="#education">教育经历</a></li>
-      <li><a href="#skills">技能专长</a></li>
-      <li><a href="#awards">获奖情况</a></li>
       <li><a href="#research">研究成果</a></li>
+      <li><a href="#awards">获奖情况</a></li>
       <li><a href="#blog">技术博客</a></li>
-      <li><a href="#contact">联系方式</a></li>
       <li><a href="#wechat">微信公众号</a></li>
+      <li><a href="#skills">技能专长</a></li>
+      <li><a href="#contact">联系方式</a></li>
     </ul>
   </nav>
 
@@ -900,7 +886,7 @@
         <h1>陈怡达<span>Yida Chen</span></h1>
         <p>昆明理工大学 · 信息工程与自动化学院 · 博士研究生</p>
         <p>多模态信息融合 · 图像配准 · 图像恢复</p>
-        <p>出生年月：1998.01 · 中共党员 · 重庆万州</p>
+        <p>1998.01 · 中共党员 · 重庆万州</p>
         <div class="contact-info">
           <a href="mailto:yida_myth@163.com" aria-label="发送邮件给陈怡达">📧 yida_myth@163.com</a>
         </div>
@@ -1007,12 +993,13 @@
       <h2>技能专长</h2>
       <div class="skills-container">
         <div class="skill-category">
-          <h3>编程语言</h3>
+          <h3>编程与开发</h3>
           <div class="skill-tags">
             <span class="skill-tag">Python</span>
             <span class="skill-tag">C/C++</span>
-            <span class="skill-tag">JavaScript</span>
             <span class="skill-tag">MATLAB</span>
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">Linux</span>
           </div>
         </div>
         <div class="skill-category">
@@ -1030,53 +1017,17 @@
             <span class="skill-tag">图像处理</span>
             <span class="skill-tag">图像配准</span>
             <span class="skill-tag">图像融合</span>
-            <span class="skill-tag">特征提取</span>
             <span class="skill-tag">目标检测</span>
           </div>
         </div>
         <div class="skill-category">
-          <h3>机器学习算法</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">K-means</span>
-            <span class="skill-tag">KNN</span>
-            <span class="skill-tag">BP神经网络</span>
-            <span class="skill-tag">SVM</span>
-          </div>
-        </div>
-        <div class="skill-category">
-          <h3>注意力机制</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">SE</span>
-            <span class="skill-tag">CBAM</span>
-            <span class="skill-tag">Self-Attention</span>
-          </div>
-        </div>
-        <div class="skill-category">
-          <h3>深度学习模型</h3>
+          <h3>模型与方法</h3>
           <div class="skill-tags">
             <span class="skill-tag">ResNet</span>
-            <span class="skill-tag">DenseNet</span>
-            <span class="skill-tag">Faster R-CNN</span>
             <span class="skill-tag">Mask R-CNN</span>
             <span class="skill-tag">U-Net</span>
             <span class="skill-tag">ViT</span>
-          </div>
-        </div>
-        <div class="skill-category">
-          <h3>开发工具</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Anaconda</span>
-            <span class="skill-tag">Git</span>
-            <span class="skill-tag">PySide2</span>
-            <span class="skill-tag">Markdown</span>
-          </div>
-        </div>
-        <div class="skill-category">
-          <h3>操作系统</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Linux</span>
-            <span class="skill-tag">macOS</span>
-            <span class="skill-tag">Windows</span>
+            <span class="skill-tag">Self-Attention</span>
           </div>
         </div>
       </div>
@@ -1332,22 +1283,28 @@
       <div class="footer-links">
         <a href="#home">首页</a>
         <a href="#education">教育经历</a>
-        <a href="#skills">技能专长</a>
         <a href="#research">研究成果</a>
-        <a href="#contact">联系方式</a>
+        <a href="#awards">获奖情况</a>
+        <a href="#blog">技术博客</a>
         <a href="#wechat">微信公众号</a>
+        <a href="#skills">技能专长</a>
+        <a href="#contact">联系方式</a>
       </div>
       <div class="copyright">
         <p>&copy; <span id="copyright-year">2026</span> 陈怡达个人主页. All rights reserved.</p>
-        <div class="beian-info">
-          <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">滇ICP备2024024637号-1</a>
-          <a href="https://beian.mps.gov.cn/#/query/webSearch?code=53011402000736" target="_blank" rel="noopener noreferrer">滇公网安备53011402000736号</a>
-        </div>
       </div>
     </div>
   </footer>
 
   <script>
+    // 统一内容区块的视觉与阅读顺序
+    const mainContent = document.getElementById('main-content');
+    const orderedSectionIds = ['education', 'research', 'awards', 'blog', 'wechat', 'skills', 'contact'];
+    orderedSectionIds.forEach(id => {
+      const section = document.getElementById(id);
+      if (section) mainContent.appendChild(section);
+    });
+
     // 平滑滚动
     document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
