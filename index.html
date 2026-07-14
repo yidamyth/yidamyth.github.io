@@ -301,6 +301,15 @@
       gap: 0.5rem;
     }
 
+    .detail-item-wide {
+      grid-column: 1 / -1;
+      flex-wrap: nowrap;
+    }
+
+    .detail-item-wide span:last-child {
+      white-space: nowrap;
+    }
+
     .detail-label {
       font-weight: 600;
       color: #555;
@@ -629,6 +638,15 @@
         grid-template-columns: 1fr;
       }
 
+      .detail-item-wide {
+        gap: 0.25rem;
+        font-size: clamp(0.75rem, 3.45vw, 1rem);
+      }
+
+      .detail-item-wide .detail-label {
+        min-width: auto;
+      }
+
       .skills-container,
       .research-grid {
         grid-template-columns: 1fr;
@@ -788,7 +806,7 @@
             <span class="detail-label">学院：</span>
             <span>计算机与信息科学学院</span>
           </div>
-          <div class="detail-item">
+          <div class="detail-item detail-item-wide">
             <span class="detail-label">研究中心：</span>
             <span>重庆市数字农业服务工程技术研究中心</span>
           </div>
