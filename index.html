@@ -526,6 +526,23 @@
       background: linear-gradient(135deg, #234e52, #2c7a7b);
     }
 
+    .research-placeholder {
+      pointer-events: none;
+    }
+
+    .research-placeholder:hover {
+      transform: none;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    }
+
+    .research-placeholder .research-header {
+      min-height: 110px;
+    }
+
+    .research-placeholder .research-content {
+      min-height: 88px;
+    }
+
     .publication-badge {
       display: inline-block;
       margin-bottom: 0.75rem;
@@ -807,6 +824,10 @@
 
       .wechat-members {
         white-space: normal;
+      }
+
+      .research-placeholder {
+        display: none;
       }
 
       .footer-links a {
@@ -1235,6 +1256,10 @@
           <div class="research-content">
             <p>项目编号：CYS22564<br>资助金额：5千元<br>项目排名：5/5</p>
           </div>
+        </div>
+        <div class="research-item research-placeholder" aria-hidden="true">
+          <div class="research-header"></div>
+          <div class="research-content"></div>
         </div>
       </div>
     </section>
