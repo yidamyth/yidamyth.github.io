@@ -818,7 +818,10 @@
     }
 
     .download-btn {
-      background: linear-gradient(135deg, #e74c3c, #c0392b);
+      --button-start: #e74c3c;
+      --button-end: #c0392b;
+      --button-shadow: rgba(231, 76, 60, 0.3);
+      background: linear-gradient(135deg, var(--button-start), var(--button-end));
       color: white;
       padding: 1rem 2rem;
       border-radius: 30px;
@@ -829,7 +832,8 @@
       gap: 0.5rem;
       width: 100%;
       font-weight: 600;
-      box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+      white-space: nowrap;
+      box-shadow: 0 5px 15px var(--button-shadow);
       transition: all 0.3s ease;
       margin: 0;
     }
@@ -842,7 +846,15 @@
 
     .download-btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+      box-shadow: 0 8px 25px var(--button-shadow);
+    }
+
+    .contact-actions-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 250px));
+      gap: 1rem;
+      width: min(100%, 516px);
+      align-items: start;
     }
 
     .download-actions {
@@ -851,6 +863,47 @@
       align-items: stretch;
       width: min(100%, 250px);
       gap: 0.75rem;
+    }
+
+    .action-column-red .download-btn:nth-child(1) {
+      --button-start: #f58b82;
+      --button-end: #e96d63;
+      --button-shadow: rgba(233, 109, 99, 0.32);
+      color: #4d120f;
+    }
+
+    .action-column-red .download-btn:nth-child(2) {
+      --button-start: #e85d50;
+      --button-end: #cf4035;
+      --button-shadow: rgba(207, 64, 53, 0.3);
+    }
+
+    .action-column-red .download-btn:nth-child(3) {
+      --button-start: #c9453b;
+      --button-end: #a92f27;
+      --button-shadow: rgba(169, 47, 39, 0.3);
+    }
+
+    .action-column-gold .download-btn {
+      color: #352400;
+    }
+
+    .action-column-gold .download-btn:nth-child(1) {
+      --button-start: #f9dc8a;
+      --button-end: #efc65a;
+      --button-shadow: rgba(239, 198, 90, 0.34);
+    }
+
+    .action-column-gold .download-btn:nth-child(2) {
+      --button-start: #f2c14e;
+      --button-end: #dda72d;
+      --button-shadow: rgba(221, 167, 45, 0.32);
+    }
+
+    .action-column-gold .download-btn:nth-child(3) {
+      --button-start: #e3a526;
+      --button-end: #c48610;
+      --button-shadow: rgba(196, 134, 16, 0.32);
     }
 
     /* 微信公众号 */
@@ -1075,6 +1128,15 @@
       .download-actions {
         margin-right: auto;
         margin-left: auto;
+      }
+
+      .contact-actions-grid {
+        gap: 0.65rem;
+      }
+
+      .contact-actions-grid .download-btn {
+        padding: 0.9rem 0.65rem;
+        font-size: 0.88rem;
       }
 
       .personal-wechat {
@@ -1515,17 +1577,24 @@
       <div class="download-section">
         <div class="contact-layout">
           <div class="contact-copy">
-            <h3>获取简历</h3>
-            <p>如需了解更多详细信息，请下载完整简历或通过邮件、微信与我联系。</p>
+            <h3>个人信息</h3>
+            <p>欢迎通过邮件、微信或以下平台与我联系并了解更多信息。</p>
             <div class="contact-email-row">
               <span class="contact-email-icon" aria-hidden="true">📧</span>
               <strong>邮箱</strong>
               <a href="mailto:yida_myth@163.com">yida_myth@163.com</a>
             </div>
-            <div class="download-actions">
-              <a href="static/陈怡达-重庆师范大学-个人简历.pdf" class="download-btn" target="_blank" rel="noopener"><span class="action-icon" aria-hidden="true">📄</span><span>下载简历</span></a>
-              <a href="mailto:yida_myth@163.com" class="download-btn"><span class="action-icon" aria-hidden="true">📧</span><span>发送邮件</span></a>
-              <a href="https://mp.weixin.qq.com/s/YtYd8Iujz2-xZDoECvzmzw" class="download-btn" target="_blank" rel="noopener noreferrer"><span class="action-icon" aria-hidden="true">👥</span><span>进交流群</span></a>
+            <div class="contact-actions-grid">
+              <div class="download-actions action-column-red">
+                <a href="static/陈怡达-重庆师范大学-个人简历.pdf" class="download-btn" target="_blank" rel="noopener"><span class="action-icon" aria-hidden="true">📄</span><span>下载简历</span></a>
+                <a href="mailto:yida_myth@163.com" class="download-btn"><span class="action-icon" aria-hidden="true">📧</span><span>发送邮件</span></a>
+                <a href="https://mp.weixin.qq.com/s/YtYd8Iujz2-xZDoECvzmzw" class="download-btn" target="_blank" rel="noopener noreferrer"><span class="action-icon" aria-hidden="true">👥</span><span>进交流群</span></a>
+              </div>
+              <div class="download-actions action-column-gold">
+                <a href="https://yidamyth.blog.csdn.net/" class="download-btn" target="_blank" rel="noopener noreferrer"><span class="action-icon" aria-hidden="true">📝</span><span>个人博客</span></a>
+                <a href="https://scholar.google.com.hk/citations?user=ggBlW70AAAAJ&amp;hl=zh-CN" class="download-btn" target="_blank" rel="noopener noreferrer"><span class="action-icon" aria-hidden="true">🎓</span><span>谷歌学术</span></a>
+                <a href="https://mp.weixin.qq.com/s/3lvqrUmb6ld5fKvpBrPu_A" class="download-btn" target="_blank" rel="noopener noreferrer"><span class="action-icon" aria-hidden="true">📣</span><span>微信公众号</span></a>
+              </div>
             </div>
           </div>
           <figure class="personal-wechat">
